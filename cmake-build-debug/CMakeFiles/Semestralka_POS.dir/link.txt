@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/Semestralka_POS.dir/main.c.o -o Semestralka_POS 

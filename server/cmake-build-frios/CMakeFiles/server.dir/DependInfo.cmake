@@ -4,10 +4,10 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/tmp/tmp.VY6tNwsi0p/main.c" "/tmp/tmp.VY6tNwsi0p/cmake-build-frios/CMakeFiles/server.dir/main.c.o"
-  "/tmp/tmp.VY6tNwsi0p/pos_sockets/active_socket.c" "/tmp/tmp.VY6tNwsi0p/cmake-build-frios/CMakeFiles/server.dir/pos_sockets/active_socket.c.o"
-  "/tmp/tmp.VY6tNwsi0p/pos_sockets/char_buffer.c" "/tmp/tmp.VY6tNwsi0p/cmake-build-frios/CMakeFiles/server.dir/pos_sockets/char_buffer.c.o"
-  "/tmp/tmp.VY6tNwsi0p/pos_sockets/passive_socket.c" "/tmp/tmp.VY6tNwsi0p/cmake-build-frios/CMakeFiles/server.dir/pos_sockets/passive_socket.c.o"
+  "/tmp/tmp.8pPYlcOt44/main.c" "/tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles/server.dir/main.c.o"
+  "/tmp/tmp.8pPYlcOt44/pos_sockets/active_socket.c" "/tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles/server.dir/pos_sockets/active_socket.c.o"
+  "/tmp/tmp.8pPYlcOt44/pos_sockets/char_buffer.c" "/tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles/server.dir/pos_sockets/char_buffer.c.o"
+  "/tmp/tmp.8pPYlcOt44/pos_sockets/passive_socket.c" "/tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles/server.dir/pos_sockets/passive_socket.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

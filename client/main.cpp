@@ -125,8 +125,8 @@ void consume(ThreadData& data) {
 
 int main() {
     // TODO main create MySocket
-
-    MySocket* mySocket = nullptr;
+    printf("Hello");
+    /*MySocket* mySocket = nullptr;
 
     ThreadData data(3000, 10, mySocket);
     std::thread thProduce(produce, std::ref(data));
@@ -136,6 +136,6 @@ int main() {
 
     delete mySocket;
     mySocket = nullptr;
-
+    */
     return 0;
 }

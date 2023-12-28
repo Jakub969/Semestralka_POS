@@ -4,6 +4,7 @@
 #include <queue>
 #include <random>
 #include <string>
+#include <condition_variable>
 #include "my_socket.h"
 
 struct Point {

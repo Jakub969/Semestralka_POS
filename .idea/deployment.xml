@@ -15,7 +15,7 @@
       <paths name="frios2 (7afd1cd6-ed3c-4f75-9142-4ddfa476d25c)">
         <serverdata>
           <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
+            <mapping deploy="/tmp/tmp.RYPLAmEBm7" local="$PROJECT_DIR$" />
           </mappings>
         </serverdata>
       </paths>

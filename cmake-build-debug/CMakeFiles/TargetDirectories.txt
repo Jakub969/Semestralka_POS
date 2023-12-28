@@ -1,3 +1,2 @@
-C:/Users/jakub/CLionProjects/sem_pos/cmake-build-debug/CMakeFiles/sem_pos.dir
-C:/Users/jakub/CLionProjects/sem_pos/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/jakub/CLionProjects/sem_pos/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/tmp/tmp.YrmIiwLiiL/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/tmp/tmp.YrmIiwLiiL/cmake-build-debug/CMakeFiles/edit_cache.dir

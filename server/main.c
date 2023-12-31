@@ -87,6 +87,7 @@ void* process_client_data(void* thread_data) {
     PASSIVE_SOCKET sock_passive;
     passive_socket_init(&sock_passive);
     passive_socket_start_listening(&sock_passive, data->port);
+    //TODO pre kazdeho hraca sa musí zavolat listening
     passive_socket_wait_for_client(&sock_passive, data->my_socket);
     passive_socket_stop_listening(&sock_passive);
     passive_socket_destroy(&sock_passive);
@@ -179,8 +180,8 @@ void* consume(void* thread_data) {
 
 
 int main(int argc, char* argv[]) {
-    printf("Hello");
-    /*pthread_t th_produce;
+    //printf("Hello");
+    pthread_t th_produce;
     pthread_t th_receive;
     struct thread_data data;
     struct active_socket my_socket;
@@ -198,6 +199,6 @@ int main(int argc, char* argv[]) {
 
     thread_data_destroy(&data);
     active_socket_destroy(&my_socket);
-*/
+
     return 0;
 }

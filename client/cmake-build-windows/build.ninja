@@ -12,7 +12,7 @@
 
 # =============================================================================
 # Project: client
-# Configurations: Release
+# Configurations: Debug
 # =============================================================================
 
 #############################################
@@ -24,7 +24,7 @@ ninja_required_version = 1.5
 #############################################
 # Set configuration variable for custom commands.
 
-CONFIGURATION = Release
+CONFIGURATION = Debug
 # =============================================================================
 # Include auxiliary files.
 
@@ -49,16 +49,16 @@ cmake_ninja_workdir = C$:/Users/jakub/CLionProjects/Semestralka_POS/client/cmake
 
 build cmake_object_order_depends_target_client: phony || CMakeFiles/client.dir
 
-build CMakeFiles/client.dir/main.cpp.obj: CXX_COMPILER__client_unscanned_Release C$:/Users/jakub/CLionProjects/Semestralka_POS/client/main.cpp || cmake_object_order_depends_target_client
+build CMakeFiles/client.dir/main.cpp.obj: CXX_COMPILER__client_unscanned_Debug C$:/Users/jakub/CLionProjects/Semestralka_POS/client/main.cpp || cmake_object_order_depends_target_client
   DEP_FILE = CMakeFiles\client.dir\main.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++14 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/jakub/CLionProjects/Semestralka_POS/client/.
   OBJECT_DIR = CMakeFiles\client.dir
   OBJECT_FILE_DIR = CMakeFiles\client.dir
 
-build CMakeFiles/client.dir/my_socket.cpp.obj: CXX_COMPILER__client_unscanned_Release C$:/Users/jakub/CLionProjects/Semestralka_POS/client/my_socket.cpp || cmake_object_order_depends_target_client
+build CMakeFiles/client.dir/my_socket.cpp.obj: CXX_COMPILER__client_unscanned_Debug C$:/Users/jakub/CLionProjects/Semestralka_POS/client/my_socket.cpp || cmake_object_order_depends_target_client
   DEP_FILE = CMakeFiles\client.dir\my_socket.cpp.obj.d
-  FLAGS = -O3 -DNDEBUG -std=gnu++14 -fdiagnostics-color=always
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
   INCLUDES = -IC:/Users/jakub/CLionProjects/Semestralka_POS/client/.
   OBJECT_DIR = CMakeFiles\client.dir
   OBJECT_FILE_DIR = CMakeFiles\client.dir
@@ -71,8 +71,8 @@ build CMakeFiles/client.dir/my_socket.cpp.obj: CXX_COMPILER__client_unscanned_Re
 #############################################
 # Link the executable client.exe
 
-build client.exe: CXX_EXECUTABLE_LINKER__client_Release CMakeFiles/client.dir/main.cpp.obj CMakeFiles/client.dir/my_socket.cpp.obj
-  FLAGS = -O3 -DNDEBUG
+build client.exe: CXX_EXECUTABLE_LINKER__client_Debug CMakeFiles/client.dir/main.cpp.obj CMakeFiles/client.dir/my_socket.cpp.obj
+  FLAGS = -g
   LINK_LIBRARIES = -lpthread  -lwsock32  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\client.dir
   POST_BUILD = cd .

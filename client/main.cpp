@@ -126,17 +126,19 @@ void consume(ThreadData& data) {
 
 int main() {
     // TODO main create MySocket
-    printf("Hello");
-    /*MySocket* mySocket = nullptr;
+    //printf("Hello");
+    MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 10500);
 
-    ThreadData data(3000, 10, mySocket);
-    std::thread thProduce(produce, std::ref(data));
+    mySocket->sendData("Pokus");
 
-    consume(data);
-    thProduce.join();
+    mySocket->sendEndMessage();
+    //ThreadData data(3000, 10, mySocket);
+    //std::thread thProduce(produce, std::ref(data));
+
+    //consume(data);
+    //thProduce.join();
 
     delete mySocket;
     mySocket = nullptr;
-    */
     return 0;
 }

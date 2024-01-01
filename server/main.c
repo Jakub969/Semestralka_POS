@@ -39,7 +39,7 @@ void pi_estimation_add_point(POINT data, struct pi_estimation* output_data) {
 }
 
 _Bool pi_estimation_try_deserialize(struct pi_estimation* pi_estimation, struct char_buffer* buf) {
-    if (sscanf(buf->data, "%d;%d", pi_estimation->total_count, pi_estimation->inside_count) == 2) {
+    if (sscanf(buf->data, "%lld;%lld", &pi_estimation->total_count, &pi_estimation->inside_count) == 2) {
         return true;
     }
     return false;
@@ -188,6 +188,8 @@ int main(int argc, char* argv[]) {
 
     active_socket_init(&my_socket);
     thread_data_init(&data, 100000, 10, 12345, &my_socket);
+
+
 
     pthread_create(&th_produce, NULL, produce, &data);
     pthread_create(&th_receive, NULL, process_client_data, &data);

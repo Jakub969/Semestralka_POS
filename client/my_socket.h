@@ -11,6 +11,7 @@ public:
     ~MySocket();
     void sendData(const std::string& data);
     void sendEndMessage();
+    std::string prijmi();
 protected:
     MySocket(SOCKET socket);
 private:

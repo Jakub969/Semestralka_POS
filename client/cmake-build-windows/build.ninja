@@ -63,6 +63,13 @@ build CMakeFiles/client.dir/my_socket.cpp.obj: CXX_COMPILER__client_unscanned_De
   OBJECT_DIR = CMakeFiles\client.dir
   OBJECT_FILE_DIR = CMakeFiles\client.dir
 
+build CMakeFiles/client.dir/Hrac.cpp.obj: CXX_COMPILER__client_unscanned_Debug C$:/Users/jakub/CLionProjects/Semestralka_POS/client/Hrac.cpp || cmake_object_order_depends_target_client
+  DEP_FILE = CMakeFiles\client.dir\Hrac.cpp.obj.d
+  FLAGS = -g -std=gnu++14 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/jakub/CLionProjects/Semestralka_POS/client/.
+  OBJECT_DIR = CMakeFiles\client.dir
+  OBJECT_FILE_DIR = CMakeFiles\client.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target client
@@ -71,7 +78,7 @@ build CMakeFiles/client.dir/my_socket.cpp.obj: CXX_COMPILER__client_unscanned_De
 #############################################
 # Link the executable client.exe
 
-build client.exe: CXX_EXECUTABLE_LINKER__client_Debug CMakeFiles/client.dir/main.cpp.obj CMakeFiles/client.dir/my_socket.cpp.obj
+build client.exe: CXX_EXECUTABLE_LINKER__client_Debug CMakeFiles/client.dir/main.cpp.obj CMakeFiles/client.dir/my_socket.cpp.obj CMakeFiles/client.dir/Hrac.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lpthread  -lwsock32  -lws2_32  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\client.dir

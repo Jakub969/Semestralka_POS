@@ -8,6 +8,7 @@ include_directories(.)
 add_executable(client
         main.cpp
         my_socket.cpp
-        my_socket.h)
+        my_socket.h
+        Hrac.cpp)
 
 target_link_libraries(client pthread wsock32 ws2_32)

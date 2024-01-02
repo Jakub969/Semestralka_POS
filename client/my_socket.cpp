@@ -4,6 +4,7 @@
 #include <winsock2.h>
 
 #define SOCKET_TERMINATE_CHAR '\0'
+#define DEFAULT_BUFLEN 512
 
 const char* MySocket::endMessage = ":end";
 
@@ -86,5 +87,50 @@ void MySocket::sendData(const std::string &data) {
 void MySocket::sendEndMessage() {
     this->sendData(this->endMessage);
 }
+
+std::string MySocket::prijmi() {
+    /*char recvbuf[DEFAULT_BUFLEN];
+    int recvbuflen = DEFAULT_BUFLEN;
+    int iResult;
+    std::string response;
+    // Prijímanie dát od servera
+    bool ukonci = false;
+    while(true) {
+        iResult = recv(connectSocket, recvbuf, recvbuflen, 0);
+        if (iResult > 0) {
+            printf("Pocet bajtov: %d\n", iResult);
+            response += recvbuf;  // Pridáme prijaté dáta do reťazca 'response'
+            ukonci = true;
+        }
+        else if (iResult == 0 && ukonci) {
+            printf("Pripojenie zatvorene\n");
+            return response;
+        }
+        else {
+            printf("recv failed with error: %d\n", WSAGetLastError());
+        }
+    }*/
+
+        char recvbuf[DEFAULT_BUFLEN];
+        int recvbuflen = DEFAULT_BUFLEN;
+        int iResult;
+        //TODO skontroluj ako funguje recv
+        // Prijímanie dát od servera
+        iResult = recv(connectSocket, recvbuf, recvbuflen, 0);
+        if (iResult > 0) {
+            printf("Bytes received: %d\n", iResult);
+        }
+        else if (iResult == 0) {
+            printf("Connection closed\n");
+        }
+        else {
+            printf("recv failed with error: %d\n", WSAGetLastError());
+        }
+
+        return std::string(recvbuf);
+
+
+}
+
 
 #undef SOCKET_TERMINATE_CHAR

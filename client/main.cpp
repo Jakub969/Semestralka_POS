@@ -7,6 +7,7 @@
 #include <condition_variable>
 #include "my_socket.h"
 #include "Hrac.h"
+#include <sstream>
 
 struct Point {
     double x;
@@ -125,31 +126,45 @@ void consume(ThreadData& data) {
     data.consume();
 }
 
+std::vector<std::string> spracujSpravuZoServera(std::string basicString) {
+    std::vector<std::string> vysledok;
+    std::stringstream ss(basicString);
+    std::string polozka;
+
+    while (std::getline(ss, polozka, ';')) {
+        vysledok.push_back(polozka);
+    }
+
+    return vysledok;
+}
+
 int main() {
     //printf("Hello");
     MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15874);
 
     std::string sprava = mySocket->prijmi();
-    std::cout << "Si hrac cislo " << sprava << std::endl;
 
-    char farba;
+    std::vector<std::string> oddeleneSpravy = spracujSpravuZoServera(sprava);
+
+    std::string farbaFigurky;
+
+    if (oddeleneSpravy[1] == "M") {
+        farbaFigurky = "Modra";
+    } else if (oddeleneSpravy[1] == "C") {
+        farbaFigurky = "Cervena";
+    } else if (oddeleneSpravy[1] == "Z") {
+        farbaFigurky = "Zelena";
+    } else {
+        farbaFigurky = "Oranzova";
+    }
+
+
+    std::cout << "Si hrac cislo " << oddeleneSpravy[0] << " s farbou figurky " << farbaFigurky << std::endl;
+
+    char farba = oddeleneSpravy[1][0];
 
     int cisloHraca = stoi(sprava);
 
-    switch (cisloHraca) {
-        case 1:
-            farba = 'Z';
-            break;
-        case 2:
-            farba = 'M';
-            break;
-        case 3:
-            farba = 'O';
-            break;
-        case 4:
-            farba = 'C';
-            break;
-    }
 
     Hrac* hrac = new Hrac(cisloHraca, farba);
 
@@ -165,7 +180,7 @@ int main() {
 
     std::string ohlasServer;
 
-    ohlasServer = "Hrac " + sprava + " je pripraveny";
+    ohlasServer = "Hrac " + oddeleneSpravy[0] + " je pripraveny";
 
     mySocket->sendData(ohlasServer);
 

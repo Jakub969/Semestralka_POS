@@ -89,33 +89,9 @@ void MySocket::sendEndMessage() {
 }
 
 std::string MySocket::prijmi() {
-    /*char recvbuf[DEFAULT_BUFLEN];
-    int recvbuflen = DEFAULT_BUFLEN;
-    int iResult;
-    std::string response;
-
-    bool ukonci = false;
-    while(true) {
-        iResult = recv(connectSocket, recvbuf, recvbuflen, 0);
-        if (iResult > 0) {
-            printf("Pocet bajtov: %d\n", iResult);
-            response += recvbuf;
-            ukonci = true;
-        }
-        else if (iResult == 0 && ukonci) {
-            printf("Pripojenie zatvorene\n");
-            return response;
-        }
-        else {
-            printf("recv failed with error: %d\n", WSAGetLastError());
-        }
-    }*/
-
         char recvbuf[DEFAULT_BUFLEN]; //nastaví pole charov na konstantu 512
         int recvbuflen = DEFAULT_BUFLEN;
-        int iResult;
-
-        iResult = recv(connectSocket, recvbuf, recvbuflen, 0);
+        recv(connectSocket, recvbuf, recvbuflen, 0);
         return std::string(recvbuf);
 }
 

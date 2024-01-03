@@ -1,7 +1,4 @@
 # ninja log v5
-13	4587	7254767151499037	CMakeFiles/client.dir/my_socket.cpp.obj	7f7095b4247a6bf5
-6	3436	7254767867248872	CMakeFiles/client.dir/main.cpp.obj	3829eee3a5a96992
-3438	3682	7254767869648622	client.exe	264cc6eaca4d8311
 2	8604	7254774340608762	CMakeFiles/client.dir/my_socket.cpp.obj	74738203a5fd7e7d
 23	8610	7254774340529297	CMakeFiles/client.dir/main.cpp.obj	150e3e2a7cdcae5d
 8612	11923	7254774374395172	client.exe	609ada2b8a1021d8

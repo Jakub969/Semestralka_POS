@@ -93,13 +93,13 @@ std::string MySocket::prijmi() {
     int recvbuflen = DEFAULT_BUFLEN;
     int iResult;
     std::string response;
-    // Prijímanie dát od servera
+
     bool ukonci = false;
     while(true) {
         iResult = recv(connectSocket, recvbuf, recvbuflen, 0);
         if (iResult > 0) {
             printf("Pocet bajtov: %d\n", iResult);
-            response += recvbuf;  // Pridáme prijaté dáta do reťazca 'response'
+            response += recvbuf;
             ukonci = true;
         }
         else if (iResult == 0 && ukonci) {
@@ -116,19 +116,7 @@ std::string MySocket::prijmi() {
         int iResult;
 
         iResult = recv(connectSocket, recvbuf, recvbuflen, 0);
-        if (iResult > 0) {
-            printf("Bytes received: %d\n", iResult);
-        }
-        else if (iResult == 0) {
-            printf("Pripojenie bolo zatvorene.\n");
-        }
-        else {
-            printf("recv failed with error: %d\n", WSAGetLastError());
-        }
-
         return std::string(recvbuf);
-
-
 }
 
 

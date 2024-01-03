@@ -6,6 +6,7 @@
 #include <string>
 #include <condition_variable>
 #include "my_socket.h"
+#include "Hrac.h"
 
 struct Point {
     double x;
@@ -129,7 +130,44 @@ int main() {
     MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15874);
 
     std::string sprava = mySocket->prijmi();
-    std::cout << sprava << std::endl;
+    std::cout << "Si hrac cislo " << sprava << std::endl;
+
+    char farba;
+
+    int cisloHraca = stoi(sprava);
+
+    switch (cisloHraca) {
+        case 1:
+            farba = 'Z';
+            break;
+        case 2:
+            farba = 'M';
+            break;
+        case 3:
+            farba = 'O';
+            break;
+        case 4:
+            farba = 'C';
+            break;
+    }
+
+    Hrac* hrac = new Hrac(cisloHraca, farba);
+
+    std::cout << "Ak si pripraveny stlac 'r'." << std::endl;
+
+    char ready;
+
+    while(ready != 'r') {
+        std::cin >> ready;
+    }
+
+    hrac->jePripraveny();
+
+    std::string ohlasServer;
+
+    ohlasServer = "Hrac " + sprava + " je pripraveny";
+
+    mySocket->sendData(ohlasServer);
 
     mySocket->sendEndMessage();
     //ThreadData data(3000, 10, mySocket);

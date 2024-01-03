@@ -10,12 +10,13 @@ class Hrac {
 private:
     int idHraca;
     char farbaFigurky;
-
+    bool jeReady;
 public:
 
     Hrac(int idHraca, char farbaFigurky);
 
 
+    void jePripraveny();
 };
 
 

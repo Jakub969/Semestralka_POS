@@ -75,7 +75,6 @@ void* process_client_data(void* thread_data) {
     passive_socket_start_listening(&sock_passive, data->port);
     for (int i = 0; i < data->pocetHracov; ++i) {
         passive_socket_wait_for_client(&sock_passive, data->my_socket);
-        //TODO rozdel hracov na farby a pridaj im id
         CHAR_BUFFER buffer;
         char_buffer_init(&buffer);
         char poradie[50];
@@ -109,7 +108,7 @@ void prijmaj(struct thread_data *pData) {
     char_buffer_destroy(&buffer);
 }
 
-int main(int argc, char* argv[]) {
+int main() {
     pthread_t th_receive;
     int pocetHracov = 1;
     short port = 15874;

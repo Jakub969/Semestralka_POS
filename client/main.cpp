@@ -110,11 +110,11 @@ void ThreadData::consume() {
         std::cout << i << ": ";
         piEstimaton.addPoint(item);
         if (i % 1000 == 0 && this->serverSocket != nullptr) {
-            // TODO ThreadData::consume 1
+
         }
     }
     if (this->serverSocket != nullptr) {
-        // TODO ThreadData::consume 2
+
     }
 }
 

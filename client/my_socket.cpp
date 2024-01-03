@@ -111,17 +111,16 @@ std::string MySocket::prijmi() {
         }
     }*/
 
-        char recvbuf[DEFAULT_BUFLEN];
+        char recvbuf[DEFAULT_BUFLEN]; //nastaví pole charov na konstantu 512
         int recvbuflen = DEFAULT_BUFLEN;
         int iResult;
-        //TODO skontroluj ako funguje recv
-        // Prijímanie dát od servera
+
         iResult = recv(connectSocket, recvbuf, recvbuflen, 0);
         if (iResult > 0) {
             printf("Bytes received: %d\n", iResult);
         }
         else if (iResult == 0) {
-            printf("Connection closed\n");
+            printf("Pripojenie bolo zatvorene.\n");
         }
         else {
             printf("recv failed with error: %d\n", WSAGetLastError());

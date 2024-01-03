@@ -125,7 +125,6 @@ void consume(ThreadData& data) {
 }
 
 int main() {
-    // TODO main create MySocket
     //printf("Hello");
     MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15874);
 

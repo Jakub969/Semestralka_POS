@@ -61,7 +61,7 @@ _Bool active_socket_try_get_read_data(struct active_socket* self, struct char_bu
 
 _Bool active_socket_is_end_message(struct active_socket* self, struct char_buffer* message) {
     return message->size == strlen(self->end_message) &&
-        strncmp(message->data, self->end_message, message->size) == 0;
+           strncmp(message->data, self->end_message, message->size) == 0;
 }
 
 void active_socket_start_reading(struct active_socket* self) {

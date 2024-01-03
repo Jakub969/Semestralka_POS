@@ -4,6 +4,7 @@
 #include <winsock2.h>
 
 #define SOCKET_TERMINATE_CHAR '\0'
+#define DEFAULT_BUFLEN 512
 
 const char* MySocket::endMessage = ":end";
 
@@ -57,7 +58,7 @@ MySocket* MySocket::createConnection(std::string hostName, short port) {
 }
 
 MySocket::MySocket(SOCKET socket) :
-    connectSocket(socket) {
+        connectSocket(socket) {
 
 }
 
@@ -86,5 +87,13 @@ void MySocket::sendData(const std::string &data) {
 void MySocket::sendEndMessage() {
     this->sendData(this->endMessage);
 }
+
+std::string MySocket::prijmi() {
+    char recvbuf[DEFAULT_BUFLEN]; //nastaví pole charov na konstantu 512
+    int recvbuflen = DEFAULT_BUFLEN;
+    recv(connectSocket, recvbuf, recvbuflen, 0);
+    return std::string(recvbuf);
+}
+
 
 #undef SOCKET_TERMINATE_CHAR

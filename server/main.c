@@ -12,72 +12,80 @@
 #include "pos_sockets/active_socket.h"
 #include "pos_sockets/passive_socket.h"
 
-typedef struct point {
-    double x;
-    double y;
-} POINT;
+typedef struct Figurka{
+    char figurka;
+    int cisloHraca;
+    int startovaciaPozicia;
+}FIGURKA;
 
-POINT generate_point(void) {
-    double x = 2 * (rand() / (double)RAND_MAX) - 1;
-    double y = 2 * (rand() / (double)RAND_MAX) - 1;
-    POINT point = {x, y};
-    return point;
-}
+typedef struct ZaciatocnyDomcek {
+    int pocetFiguriekVDomceku;
+    FIGURKA figurka[4];
+}ZACIATOCNY_DOMCEK;
 
+typedef struct KoncovyDomcek {
+    int cisloHraca;
+    int pocetFiguriekVDomceku;
+}KONCOVY_DOMCEK;
 
-typedef struct pi_estimation {
-    long long total_count;
-    long long inside_count;
-} PI_ESTIMATION_DATA;
+typedef struct HraciaPlocha {
+    char policka[52];
+    int pocetHracov;
+    ZACIATOCNY_DOMCEK zaciatocnyDomcek[4];
+    KONCOVY_DOMCEK koncovyDomcek[4];
+}HRACIA_PLOCHA;
 
-void pi_estimation_add_point(POINT data, struct pi_estimation* output_data) {
-    ++output_data->total_count;
-    if (data.x * data.x + data.y * data.y <= 1) {
-        ++output_data->inside_count;
+void init_hracia_plocha(HRACIA_PLOCHA *hraciaPlocha, int pocetHracov) {
+    hraciaPlocha->pocetHracov = pocetHracov;
+    for (int i = 0; i < pocetHracov; i++) {
+        char oznacenieFigurky;
+        switch (i) {
+            case 0:
+                oznacenieFigurky = 'M'; //Označenie pre modrú figurku
+                break;
+            case 1:
+                oznacenieFigurky = 'C'; //Označenie pre červenú figurku
+                break;
+            case 2:
+                oznacenieFigurky = 'Z';  //Označenie pre zelenú figurku
+                break;
+            case 3:
+                oznacenieFigurky = 'O'; //Označenie pre oranžovú figurku
+                break;
+            default:
+                oznacenieFigurky = '*';
+                break;
+        }
+        for (int j = 0; j < 4; j++) {
+            hraciaPlocha->zaciatocnyDomcek[i].figurka[j].figurka = oznacenieFigurky;
+            hraciaPlocha->zaciatocnyDomcek[i].figurka[j].cisloHraca = i + 1;
+            hraciaPlocha->zaciatocnyDomcek[i].figurka[j].startovaciaPozicia = i * 13;
+        }
+        hraciaPlocha->zaciatocnyDomcek[i].pocetFiguriekVDomceku = 4;
+        hraciaPlocha->koncovyDomcek[i].pocetFiguriekVDomceku = 0;
     }
-    printf("Odhad pi: %f\n", 4 * (double)output_data->inside_count / (double)output_data->total_count);
-}
-
-_Bool pi_estimation_try_deserialize(struct pi_estimation* pi_estimation, struct char_buffer* buf) {
-    if (sscanf(buf->data, "%d;%d", pi_estimation->total_count, pi_estimation->inside_count) == 2) {
-        return true;
+    for (int i = 0; i < 52; i++) {
+        hraciaPlocha->policka[i] = '*';
     }
-    return false;
 }
-
-
-GENERATE_BUFFER(struct point, point)
-
 
 typedef struct thread_data {
-    long long replications_count;
-    struct buffer_point buf;
-    pthread_mutex_t mutex;
-    pthread_cond_t is_full;
-    pthread_cond_t is_empty;
-
+    int pocetHracov;
     short port;
     ACTIVE_SOCKET* my_socket;
+    _Bool koniec;
+    HRACIA_PLOCHA* hraciaPlocha;
 } THREAD_DATA;
 
-void thread_data_init(struct thread_data* data, long long replications_count, int buffer_capacity, short port, ACTIVE_SOCKET* my_socket) {
-    data->replications_count = replications_count;
-    buffer_point_init(&data->buf, buffer_capacity);
-    pthread_mutex_init(&data->mutex, NULL);
-    pthread_cond_init(&data->is_full, NULL);
-    pthread_cond_init(&data->is_empty, NULL);
-
+void thread_data_init(struct thread_data* data, int pocetHracov, short port, ACTIVE_SOCKET* my_socket, HRACIA_PLOCHA* hraciaPlocha) {
+    data->pocetHracov = pocetHracov;
     data->port = port;
     data->my_socket = my_socket;
+    data->hraciaPlocha = hraciaPlocha;
+    data->koniec = false;
 }
 
 void thread_data_destroy(struct thread_data* data) {
-    data->replications_count = 0;
-    buffer_point_destroy(&data->buf);
-    pthread_mutex_destroy(&data->mutex);
-    pthread_cond_destroy(&data->is_full);
-    pthread_cond_destroy(&data->is_empty);
-
     data->port = 0;
     data->my_socket = NULL;
 }
@@ -87,7 +95,21 @@ void* process_client_data(void* thread_data) {
     PASSIVE_SOCKET sock_passive;
     passive_socket_init(&sock_passive);
     passive_socket_start_listening(&sock_passive, data->port);
-    passive_socket_wait_for_client(&sock_passive, data->my_socket);
+    for (int i = 0; i < data->pocetHracov; ++i) {
+        passive_socket_wait_for_client(&sock_passive, data->my_socket);
+        CHAR_BUFFER buffer;
+        char_buffer_init(&buffer);
+        char poradie[50];
+        sprintf(poradie, "%d", i+1);
+        char_buffer_append(&buffer, poradie, strlen(poradie));
+        char_buffer_append(&buffer, ";", strlen(";"));
+        char oznacenie[50];
+        sprintf(oznacenie, "%c", data->hraciaPlocha->zaciatocnyDomcek[i].figurka[0].figurka);
+        char_buffer_append(&buffer, oznacenie, strlen(oznacenie));
+        char_buffer_append(&buffer, "\0", 1);
+        active_socket_write_data(data->my_socket, &buffer);
+        printf("Pripojil sa hrac %d s oznacenim %s\n", i+1, oznacenie);
+    }
     passive_socket_stop_listening(&sock_passive);
     passive_socket_destroy(&sock_passive);
 
@@ -96,108 +118,47 @@ void* process_client_data(void* thread_data) {
     return NULL;
 }
 
-void* produce(void* thread_data) {
-    struct thread_data* data = (struct thread_data*)thread_data;
 
-    for (long long i = 1; i <= data->replications_count; ++i) {
-        POINT item = generate_point();
+void vykonajInstrukciu(struct thread_data *pData) {
 
-        pthread_mutex_lock(&data->mutex);
-        while (!buffer_point_try_push(&data->buf, item)) {
-            pthread_cond_wait(&data->is_empty, &data->mutex);
-        }
-        pthread_cond_signal(&data->is_full);
-        pthread_mutex_unlock(&data->mutex);
-    }
-    return NULL;
 }
 
-_Bool try_get_client_pi_estimation(struct active_socket* my_sock, struct pi_estimation* client_pi_estimaton) {
-
-    CHAR_BUFFER buf;
-    char_buffer_init(&buf);
-    _Bool result = false;
-    if (active_socket_try_get_read_data(my_sock, &buf)) {
-        if (!pi_estimation_try_deserialize(client_pi_estimaton, &buf)) {
-            if (active_socket_is_end_message(my_sock, &buf)) {
-                active_socket_stop_reading(my_sock);
-            }
-        } else {
-            result = true;
+void prijmaj(struct thread_data *pData) {
+    CHAR_BUFFER buffer;
+    char_buffer_init(&buffer);
+    if (active_socket_try_get_read_data(pData->my_socket, &buffer)) {
+        if (active_socket_is_end_message(pData->my_socket,&buffer)) {
+            active_socket_stop_reading(pData->my_socket);
+            pData->koniec = true;
+            return;
         }
+        vykonajInstrukciu(pData);
+        printf("%s\n", buffer.data);
     }
-
-
-    char_buffer_destroy(&buf);
-
-
-    return result;
-}
-
-void* consume(void* thread_data) {
-    struct thread_data* data = (struct thread_data*)thread_data;
-
-    struct pi_estimation pi_estimaton = {0, 0};
-    struct pi_estimation client_pi_estimaton = {0, 0};
-    for (long long i = 1; i <= data->replications_count; ++i) {
-        POINT item;
-
-        pthread_mutex_lock(&data->mutex);
-        while (!buffer_point_try_pop(&data->buf, &item)) {
-            pthread_cond_wait(&data->is_full, &data->mutex);
-        }
-        pthread_cond_signal(&data->is_empty);
-        pthread_mutex_unlock(&data->mutex);
-
-        printf("%ld: ", i);
-        ++pi_estimaton.total_count;
-        if (item.x * item.x + item.y * item.y <= 1) {
-            ++pi_estimaton.inside_count;
-        }
-        printf("Odhad pi: %lf\n", 4 * (double)pi_estimaton.inside_count / (double)pi_estimaton.total_count);
-
-        if (data->my_socket != NULL) {
-            try_get_client_pi_estimation(data->my_socket, &client_pi_estimaton);
-            printf("%ld: ", i);
-            printf("Odhad pi s vyuzitim dat od klienta: %lf\n",
-                   4 * (double)(pi_estimaton.inside_count + client_pi_estimaton.inside_count) /
-                   (double)(pi_estimaton.total_count + client_pi_estimaton.total_count));
-        }
-    }
-    if (data->my_socket != NULL) {
-        while (active_socket_is_reading(data->my_socket)) {
-            if (try_get_client_pi_estimation(data->my_socket, &client_pi_estimaton)) {
-                printf("Odhad pi s vyuzitim dat od klienta: %lf\n",
-                       4 * (double)(pi_estimaton.inside_count + client_pi_estimaton.inside_count) /
-                       (double)(pi_estimaton.total_count + client_pi_estimaton.total_count));
-            }
-        }
-    }
-
-    return NULL;
+    char_buffer_destroy(&buffer);
 }
 
 
-int main(int argc, char* argv[]) {
-    printf("Hello1");
-    /*pthread_t th_produce;
+int main() {
     pthread_t th_receive;
+    int pocetHracov = 1;
+    short port = 15874;
+    HRACIA_PLOCHA hraciaPlocha;
     struct thread_data data;
     struct active_socket my_socket;
 
+    init_hracia_plocha(&hraciaPlocha, pocetHracov);
     active_socket_init(&my_socket);
-    thread_data_init(&data, 100000, 10, 12345, &my_socket);
+    thread_data_init(&data, pocetHracov, port ,&my_socket, &hraciaPlocha);
 
-    pthread_create(&th_produce, NULL, produce, &data);
     pthread_create(&th_receive, NULL, process_client_data, &data);
-
-    consume(&data);
-
-    pthread_join(th_produce, NULL);
+    while (!data.koniec) {
+        prijmaj(&data);
+    }
     pthread_join(th_receive, NULL);
 
     thread_data_destroy(&data);
     active_socket_destroy(&my_socket);
-*/
+
     return 0;
 }

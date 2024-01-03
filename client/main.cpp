@@ -6,6 +6,8 @@
 #include <string>
 #include <condition_variable>
 #include "my_socket.h"
+#include "Hrac.h"
+#include <sstream>
 
 struct Point {
     double x;
@@ -124,19 +126,72 @@ void consume(ThreadData& data) {
     data.consume();
 }
 
+std::vector<std::string> spracujSpravuZoServera(std::string basicString) {
+    std::vector<std::string> vysledok;
+    std::stringstream ss(basicString);
+    std::string polozka;
+
+    while (std::getline(ss, polozka, ';')) {
+        vysledok.push_back(polozka);
+    }
+
+    return vysledok;
+}
+
 int main() {
-    // TODO main create MySocket
-    printf("Hello");
-    /*MySocket* mySocket = nullptr;
+    //printf("Hello");
+    MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15874);
 
-    ThreadData data(3000, 10, mySocket);
-    std::thread thProduce(produce, std::ref(data));
+    std::string sprava = mySocket->prijmi();
 
-    consume(data);
-    thProduce.join();
+    std::vector<std::string> oddeleneSpravy = spracujSpravuZoServera(sprava);
+
+    std::string farbaFigurky;
+
+    if (oddeleneSpravy[1] == "M") {
+        farbaFigurky = "Modra";
+    } else if (oddeleneSpravy[1] == "C") {
+        farbaFigurky = "Cervena";
+    } else if (oddeleneSpravy[1] == "Z") {
+        farbaFigurky = "Zelena";
+    } else {
+        farbaFigurky = "Oranzova";
+    }
+
+
+    std::cout << "Si hrac cislo " << oddeleneSpravy[0] << " s farbou figurky " << farbaFigurky << std::endl;
+
+    char farba = oddeleneSpravy[1][0];
+
+    int cisloHraca = stoi(sprava);
+
+
+    Hrac* hrac = new Hrac(cisloHraca, farba);
+
+    std::cout << "Ak si pripraveny stlac 'r'." << std::endl;
+
+    char ready;
+
+    while(ready != 'r') {
+        std::cin >> ready;
+    }
+
+    hrac->jePripraveny();
+
+    std::string ohlasServer;
+
+    ohlasServer = "Hrac " + oddeleneSpravy[0] + " je pripraveny";
+
+    mySocket->sendData(ohlasServer);
+
+    mySocket->sendEndMessage();
+    //ThreadData data(3000, 10, mySocket);
+    //std::thread thProduce(produce, std::ref(data));
+
+    //consume(data);
+    //thProduce.join();
 
     delete mySocket;
     mySocket = nullptr;
-    */
     return 0;
 }

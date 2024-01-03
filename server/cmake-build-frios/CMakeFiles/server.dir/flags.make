@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/tmp/tmp.VY6tNwsi0p/. -I/tmp/tmp.VY6tNwsi0p/pos_sockets
+C_INCLUDES = -I/tmp/tmp.8pPYlcOt44/. -I/tmp/tmp.8pPYlcOt44/pos_sockets
 
-C_FLAGS = -g -std=gnu11
+C_FLAGS = -O3 -DNDEBUG -std=gnu11
 

@@ -141,7 +141,7 @@ void prijmaj(struct thread_data *pData) {
 
 int main() {
     pthread_t th_receive;
-    int pocetHracov = 1;
+    int pocetHracov = 2;
     short port = 15874;
     HRACIA_PLOCHA hraciaPlocha;
     struct thread_data data;

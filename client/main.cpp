@@ -15,14 +15,14 @@ struct Point {
     static Point generate();
 };
 
-Point Point::generate() {
-    static std::default_random_engine rnd;
-    static std::uniform_real_distribution<double> dist(-1.0, 1.0);
-    double x = dist(rnd);
-    double y = dist(rnd);
-    Point point = {x, y};
-    return point;
-}
+//Point Point::generate() {
+    //static std::default_random_engine rnd;
+   // static std::unriform_real_distribution<double> dist(-1.0, 1.0);
+   // double x = dist(rnd);
+   // double y = dist(rnd);
+  //  Point point = {x, y};
+   // return point;
+//}
 
 class PiEstimation {
 public:

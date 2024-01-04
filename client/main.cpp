@@ -9,67 +9,33 @@
 #include "Hrac.h"
 #include <sstream>
 
-struct Point {
-    double x;
-    double y;
-    static Point generate();
+
+struct hodKockou {
+    int cislo;
+    static hodKockou generate();
 };
 
-//Point Point::generate() {
-    //static std::default_random_engine rnd;
-   // static std::unriform_real_distribution<double> dist(-1.0, 1.0);
-   // double x = dist(rnd);
-   // double y = dist(rnd);
-  //  Point point = {x, y};
-   // return point;
-//}
-
-class PiEstimation {
-public:
-    PiEstimation();
-    void addPoint(const Point& point);
-    std::string& serialize(std::string& output);
-private:
-    long long totalCount;
-    long long insideCount;
-};
-
-void PiEstimation::addPoint(const Point& point) {
-    ++this->totalCount;
-    if (point.x * point.x + point.y * point.y <= 1) {
-        ++this->insideCount;
-    }
-    std::cout << "Odhad pi: " << 4 * (double)this->insideCount / (double)this->totalCount << std::endl;
+hodKockou hodKockou::generate() {
+    int cislo = rand() % 6 + 1;
+    hodKockou point = {cislo};
+    return point;
 }
-
-PiEstimation::PiEstimation() :
-        totalCount(0),
-        insideCount(0) {
-}
-
-std::string &PiEstimation::serialize(std::string &output) {
-    // TODO PiEstimation::serialize
-    return output;
-}
-
 
 class ThreadData {
 public:
-    ThreadData(long long replicationsCount, int bufferCapacity, MySocket* serverSocket);
+    ThreadData(int bufferCapacity, MySocket* serverSocket);
     void produce();
-    void consume();
+    hodKockou consume();
 private:
-    const long long replicationsCount;
     const int bufferCapacity;
-    std::queue<Point> buffer;
+    std::queue<hodKockou> buffer;
     std::mutex mutex;
     std::condition_variable isFull;
     std::condition_variable isEmpty;
     MySocket* serverSocket;
 };
 
-ThreadData::ThreadData(long long replicationsCount, int bufferCapacity, MySocket* serverSocket) :
-        replicationsCount(replicationsCount),
+ThreadData::ThreadData(int bufferCapacity, MySocket* serverSocket) :
         bufferCapacity(bufferCapacity),
         buffer(),
         mutex(),
@@ -80,11 +46,11 @@ ThreadData::ThreadData(long long replicationsCount, int bufferCapacity, MySocket
 }
 
 void ThreadData::produce() {
-    for (long long i = 1; i <= this->replicationsCount; ++i) {
-        Point item = Point::generate();
+    for (int i = 0; i < 1000; ++i) {
+        hodKockou item = hodKockou::generate();
         {
             std::unique_lock<std::mutex> lock(this->mutex);
-            while (static_cast<long long>(this->buffer.size()) >= bufferCapacity) {
+            while (static_cast<int>(this->buffer.size()) >= bufferCapacity) {
                 this->isEmpty.wait(lock);
             }
             this->buffer.push(item);
@@ -93,29 +59,18 @@ void ThreadData::produce() {
     }
 }
 
-void ThreadData::consume() {
-    PiEstimation piEstimaton;
-    for (long long i = 1; i <= this->replicationsCount; ++i) {
-        Point item;
-
-        {
-            std::unique_lock<std::mutex> lock(this->mutex);
-            while (this->buffer.size() <= 0) {
-                this->isFull.wait(lock);
-            }
-            item = this->buffer.front();
-            this->buffer.pop();
-            this->isEmpty.notify_one();
+hodKockou ThreadData::consume() {
+    hodKockou item;
+    {
+        std::unique_lock<std::mutex> lock(this->mutex);
+        while (this->buffer.size() <= 0) {
+            this->isFull.wait(lock);
         }
-        std::cout << i << ": ";
-        piEstimaton.addPoint(item);
-        if (i % 1000 == 0 && this->serverSocket != nullptr) {
-
-        }
+        item = this->buffer.front();
+        this->buffer.pop();
+        this->isEmpty.notify_one();
     }
-    if (this->serverSocket != nullptr) {
-
-    }
+    return item;
 }
 
 void produce(ThreadData& data) {
@@ -126,7 +81,9 @@ void consume(ThreadData& data) {
     data.consume();
 }
 
-std::vector<std::string> spracujSpravuZoServera(std::string basicString) {
+
+
+std::vector<std::string> spracujSpravuZoServera(const std::string& basicString) {
     std::vector<std::string> vysledok;
     std::stringstream ss(basicString);
     std::string polozka;
@@ -138,7 +95,110 @@ std::vector<std::string> spracujSpravuZoServera(std::string basicString) {
     return vysledok;
 }
 
+void spracuj(const std::string& basicString, Hrac* hrac, ThreadData* data) {
+    std::vector<std::string> spracovanaSprava = spracujSpravuZoServera(basicString);
+    if (spracovanaSprava[0] == "hernaPlocha") {
+        std::cout << std::string(25, '\n');
+        std::cout << "Pocet hracov: " << spracovanaSprava[1] << std::endl;
+        for (int i = 0; i < std::stoi(spracovanaSprava[1]); ++i) {
+            std::string farba;
+            int pocetFiguriekVZaciatocnom;
+            if (i == 0) {
+                farba = "Modreho";
+                pocetFiguriekVZaciatocnom = std::stoi(spracovanaSprava[2]);
+            } else if (i == 1) {
+                farba = "Cerveneho";
+                pocetFiguriekVZaciatocnom = std::stoi(spracovanaSprava[3]);
+            } else if (i == 2) {
+                farba = "Zeleneho";
+                pocetFiguriekVZaciatocnom = std::stoi(spracovanaSprava[4]);
+            } else {
+                farba = "Oranzoveho";
+                pocetFiguriekVZaciatocnom = std::stoi(spracovanaSprava[5]);
+            }
+            std::cout << "Pocet figuriek " << farba << " hraca v zaciatocnom domceku: " << pocetFiguriekVZaciatocnom << std::endl;
+        }
+        std::string hernaPlocha;
+        for (int i = (std::stoi(spracovanaSprava[1]) * 2) + 2; i < spracovanaSprava.size(); ++i) {
+            hernaPlocha += spracovanaSprava[i];
+        }
+        std::vector<std::vector<char>> dvojrozmernePole(15, std::vector<char>(15, ' '));
+
+        int index = 0;
+
+        for (int i = 0; i < 15; ++i) {
+            for (int j = 0; j < 15; ++j) {
+                if (((i < 6 || i > 8) && (j == 6 || j == 8)) || ((j < 6 || j > 8) && (i == 6 || i == 8)) ||
+                    (i == 0 && j == 7) || (i == 14 && j == 7) || (i == 7 && j == 0) || (i == 7 && j == 14)) {
+                    if (index < hernaPlocha.size() && hernaPlocha[index] == 'M') {
+                        dvojrozmernePole[i][j] = 'M';
+                    } else if (index < hernaPlocha.size() && hernaPlocha[index] == 'C') {
+                        dvojrozmernePole[i][j] = 'C';
+                    } else if (index < hernaPlocha.size() && hernaPlocha[index] == 'Z') {
+                        dvojrozmernePole[i][j] = 'Z';
+                    } else if (index < hernaPlocha.size() && hernaPlocha[index] == 'O') {
+                        dvojrozmernePole[i][j] = 'O';
+                    } else {
+                        dvojrozmernePole[i][j] = '*';
+                    }
+                    index++;
+                }
+            }
+        }
+
+        for (int i = 0; i < 15; ++i) {
+            for (int j = 0; j < 15; ++j) {
+                std::cout << dvojrozmernePole[i][j] << " ";
+            }
+            std::cout << std::endl;
+        }
+        for (int i = 0; i < std::stoi(spracovanaSprava[1]); ++i) {
+            int pocetFiguriekVKoncovom;
+            std::string farba;
+            if (i == 0) {
+                farba = "Modreho";
+                pocetFiguriekVKoncovom = std::stoi((spracovanaSprava[3]));
+            } else if (i == 1) {
+                farba = "Cerveneho";
+                pocetFiguriekVKoncovom = std::stoi((spracovanaSprava[5]));
+            } else if (i == 2) {
+                farba = "Zeleneho";
+                pocetFiguriekVKoncovom = std::stoi((spracovanaSprava[7]));
+            } else {
+                farba = "Oranzoveho";
+                pocetFiguriekVKoncovom = std::stoi((spracovanaSprava[9]));
+            }
+            std::cout << "Pocet figuriek " << farba << " hraca v koncovom domceku: " << pocetFiguriekVKoncovom << std::endl;
+        }
+
+    } else if (spracovanaSprava[0] == "Hra sa zacne za ...\n" || spracovanaSprava[0] == "3\n" || spracovanaSprava[0] == "2\n" || spracovanaSprava[0] == "1\n") {
+        std::cout << spracovanaSprava[0];
+    } else if (spracovanaSprava[0] == "poradieHraca") {
+        std::string farba;
+        if (spracovanaSprava[1] == "1") {
+            farba = "Modra 'M'";
+        } else if (spracovanaSprava[1] == "2") {
+            farba = "Cervena 'C'";
+        } else if (spracovanaSprava[1] == "3") {
+            farba = "Zelena 'Z'";
+        } else {
+            farba = "Oranzova 'O'";
+        }
+
+        std::cout << "Na tahu je hrac cislo " << std::stoi(spracovanaSprava[1]) << " s farbou " << farba << std::endl;
+        if (hrac->getIdHraca() == std::stoi(spracovanaSprava[1])) {
+            char tlacidlo;
+            std::cout << "Stlac 'e' aby si hodil kockou.";
+            while (tlacidlo != 'e') {
+                std::cin >> tlacidlo;
+            }
+
+        }
+    }
+}
+
 int main() {
+    srand(time(0));
     //printf("Hello");
     MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15874);
 
@@ -183,18 +243,21 @@ int main() {
     ohlasServer = "Hrac " + oddeleneSpravy[0] + " je pripraveny";
 
     mySocket->sendData(ohlasServer);
+    ThreadData data(100, mySocket);
+    std::thread thProduce(produce, std::ref(data));
 
+    consume(data);
     while(true) {
-        std::cout << mySocket->prijmi();
+        std::string response =  mySocket->prijmi();
+        //std::cout << response;
+        spracuj(response, hrac, &data);
     }
 
     mySocket->sendEndMessage();
-    //ThreadData data(3000, 10, mySocket);
-    //std::thread thProduce(produce, std::ref(data));
 
-    //consume(data);
-    //thProduce.join();
-
+    thProduce.join();
+    delete hrac;
+    hrac = nullptr;
     delete mySocket;
     mySocket = nullptr;
     return 0;

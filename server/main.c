@@ -7,6 +7,7 @@
 #include <sys/socket.h>
 #include <arpa/inet.h>
 #include <unistd.h>
+#include <ctype.h>
 #include "buffer.h"
 #include "pos_sockets/char_buffer.h"
 #include "pos_sockets/active_socket.h"
@@ -72,6 +73,7 @@ void init_hracia_plocha(HRACIA_PLOCHA *hraciaPlocha, int pocetHracov) {
 typedef struct thread_data {
     int pocetHracov;
     int pocetPripravenychHracov;
+    int hracNaRade;
     short port;
     ACTIVE_SOCKET* my_socket;
     _Bool koniec;
@@ -81,6 +83,7 @@ typedef struct thread_data {
 void thread_data_init(struct thread_data* data, int pocetHracov, short port, ACTIVE_SOCKET* my_socket, HRACIA_PLOCHA* hraciaPlocha) {
     data->pocetHracov = pocetHracov;
     data->pocetPripravenychHracov = 0;
+    data->hracNaRade = 1;
     data->port = port;
     data->my_socket = my_socket;
     data->hraciaPlocha = hraciaPlocha;
@@ -121,6 +124,22 @@ void* process_client_data(void* thread_data) {
 }
 
 
+void hracNaRade(THREAD_DATA *pData) {
+    CHAR_BUFFER odpoved;
+    char_buffer_init(&odpoved);
+    char poradie[50];
+    sprintf(poradie, "%s", "poradieHraca;");
+    char_buffer_append(&odpoved, poradie, strlen(poradie));
+    sprintf(poradie, "%d", pData->hracNaRade);
+    char_buffer_append(&odpoved, poradie, strlen(poradie));
+    char_buffer_append(&odpoved, "\0", 1);
+    active_socket_write_data(pData->my_socket, &odpoved);
+    if (pData->pocetHracov == pData->hracNaRade) {
+        pData->hracNaRade = 0;
+    }
+    pData->hracNaRade++;
+}
+
 void posliPolicka(THREAD_DATA *pData) {
     CHAR_BUFFER odpoved;
     char_buffer_init(&odpoved);
@@ -145,7 +164,9 @@ void posliPolicka(THREAD_DATA *pData) {
         char_buffer_append(&odpoved, policka, strlen(policka));
         char_buffer_append(&odpoved, ";", strlen(";"));
     }
+    char_buffer_append(&odpoved, "\0", 1);
     active_socket_write_data(pData->my_socket, &odpoved);
+    hracNaRade(pData);
 }
 
 void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
@@ -203,7 +224,7 @@ void prijmaj(struct thread_data *pData) {
 
 int main() {
     pthread_t th_receive;
-    int pocetHracov = 2;
+    int pocetHracov = 1;
     short port = 15874;
     HRACIA_PLOCHA hraciaPlocha;
     struct thread_data data;

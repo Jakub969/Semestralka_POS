@@ -133,6 +133,7 @@ void hracNaRade(THREAD_DATA *pData) {
     sprintf(poradie, "%d", pData->hracNaRade);
     char_buffer_append(&odpoved, poradie, strlen(poradie));
     char_buffer_append(&odpoved, "\0", 1);
+    sleep(1);
     active_socket_write_data(pData->my_socket, &odpoved);
     if (pData->pocetHracov == pData->hracNaRade) {
         pData->hracNaRade = 0;
@@ -194,10 +195,14 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
             active_socket_write_data(data->my_socket, &odpoved);
             posliPolicka(data);
         } else  {
-            sprintf(odpovedaj, "%s", "Je pripravenych ");
+            sprintf(odpovedaj, "%s", "Je pripravenych; ");
+            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
             sprintf(odpovedaj, "%d", data->pocetPripravenychHracov);
+            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
             sprintf(odpovedaj, "%c", '/');
+            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
             sprintf(odpovedaj, "%d", data->pocetHracov);
+            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
             sprintf(odpovedaj, "%s", " hracov\n");
             char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
             active_socket_write_data(data->my_socket, &odpoved);

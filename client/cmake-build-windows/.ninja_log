@@ -1,9 +1,17 @@
 # ninja log v5
-20	3722	7260060591720699	CMakeFiles/client.dir/my_socket.cpp.obj	7bf966fd0d4c5c6e
-6	3771	7260120825482376	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
-3773	4174	7260120829474833	client.exe	24fdd78216544d1e
-18	856	7259888686407167	CMakeFiles/client.dir/Hrac.cpp.obj	dd2ebf5103a473cc
-9	6937	7260881185357745	CMakeFiles/client.dir/my_socket.cpp.obj	7ac1ebb772374f54
-29	6967	7260881186391135	CMakeFiles/client.dir/Hrac.cpp.obj	ec9c60f853d5d39f
-23	7385	7260881190520077	CMakeFiles/client.dir/main.cpp.obj	d2af7a70fba365cd
-7386	8463	7260881201286281	client.exe	70a3f82df7e4253d
+3	3047	7260897697386491	CMakeFiles/client.dir/my_socket.cpp.obj	7f7095b4247a6bf5
+11	4273	7260897709668802	CMakeFiles/client.dir/main.cpp.obj	3829eee3a5a96992
+4274	4446	7260897711314018	client.exe	a051dc55ed1cd4e2
+17	952	7260897676425982	CMakeFiles/client.dir/Hrac.cpp.obj	bdaa587486496a9b
+14	737	7260898693588083	CMakeFiles/client.dir/Hrac.cpp.obj	dd2ebf5103a473cc
+20	3467	7260898720910873	CMakeFiles/client.dir/my_socket.cpp.obj	7bf966fd0d4c5c6e
+7	4415	7260898730325610	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
+4415	4650	7260898732668301	client.exe	24fdd78216544d1e
+4	2626	7260924271097562	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
+2633	2846	7260924273273908	client.exe	24fdd78216544d1e
+8	6394	7260925610586812	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
+6395	6932	7260925615933318	client.exe	24fdd78216544d1e
+9	5965	7260930842804688	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
+5967	6332	7260930846506414	client.exe	24fdd78216544d1e
+9	6283	7260931728192506	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
+6285	6612	7260931731462745	client.exe	24fdd78216544d1e

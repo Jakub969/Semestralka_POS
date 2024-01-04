@@ -77,12 +77,6 @@ void produce(ThreadData& data) {
     data.produce();
 }
 
-void consume(ThreadData& data) {
-    data.consume();
-}
-
-
-
 std::vector<std::string> spracujSpravuZoServera(const std::string& basicString) {
     std::vector<std::string> vysledok;
     std::stringstream ss(basicString);
@@ -98,7 +92,7 @@ std::vector<std::string> spracujSpravuZoServera(const std::string& basicString) 
 void spracuj(const std::string& basicString, Hrac* hrac, ThreadData* data) {
     std::vector<std::string> spracovanaSprava = spracujSpravuZoServera(basicString);
     if (spracovanaSprava[0] == "hernaPlocha") {
-        std::cout << std::string(25, '\n');
+        //std::cout << std::string(25, '\n');
         std::cout << "Pocet hracov: " << spracovanaSprava[1] << std::endl;
         for (int i = 0; i < std::stoi(spracovanaSprava[1]); ++i) {
             std::string farba;
@@ -192,8 +186,11 @@ void spracuj(const std::string& basicString, Hrac* hrac, ThreadData* data) {
             while (tlacidlo != 'e') {
                 std::cin >> tlacidlo;
             }
-
+            hodKockou hod = data->consume();
+            std::cout << "Hodil si cislo: " << hod.cislo << std::endl;
         }
+    } else if (spracovanaSprava[0] == "je pripravenych") {
+        std::cout << spracovanaSprava[0] << spracovanaSprava[1] << std::endl;
     }
 }
 
@@ -245,8 +242,6 @@ int main() {
     mySocket->sendData(ohlasServer);
     ThreadData data(100, mySocket);
     std::thread thProduce(produce, std::ref(data));
-
-    consume(data);
     while(true) {
         std::string response =  mySocket->prijmi();
         //std::cout << response;

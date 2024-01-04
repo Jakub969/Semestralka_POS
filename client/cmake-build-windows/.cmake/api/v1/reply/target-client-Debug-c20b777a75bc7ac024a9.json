@@ -52,14 +52,14 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-O3 -DNDEBUG -std=gnu++14 -fdiagnostics-color=always"
+					"fragment" : "-g -std=gnu++14 -fdiagnostics-color=always"
 				}
 			],
 			"includes" : 
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Daniel/CLionProjects/Semestralka_POS/client/."
+					"path" : "C:/Users/jakub/CLionProjects/Semestralka_POS/client/."
 				}
 			],
 			"language" : "CXX",
@@ -85,7 +85,7 @@
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-O3 -DNDEBUG",
+				"fragment" : "-g",
 				"role" : "flags"
 			},
 			{

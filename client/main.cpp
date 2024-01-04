@@ -110,11 +110,11 @@ void ThreadData::consume() {
         std::cout << i << ": ";
         piEstimaton.addPoint(item);
         if (i % 1000 == 0 && this->serverSocket != nullptr) {
-            // TODO ThreadData::consume 1
+
         }
     }
     if (this->serverSocket != nullptr) {
-        // TODO ThreadData::consume 2
+
     }
 }
 
@@ -149,13 +149,13 @@ int main() {
     std::string farbaFigurky;
 
     if (oddeleneSpravy[1] == "M") {
-        farbaFigurky = "Modra";
+        farbaFigurky = "Modra 'M'";
     } else if (oddeleneSpravy[1] == "C") {
-        farbaFigurky = "Cervena";
+        farbaFigurky = "Cervena 'C'";
     } else if (oddeleneSpravy[1] == "Z") {
-        farbaFigurky = "Zelena";
+        farbaFigurky = "Zelena 'Z'";
     } else {
-        farbaFigurky = "Oranzova";
+        farbaFigurky = "Oranzova 'O'";
     }
 
 
@@ -183,6 +183,10 @@ int main() {
     ohlasServer = "Hrac " + oddeleneSpravy[0] + " je pripraveny";
 
     mySocket->sendData(ohlasServer);
+
+    while(true) {
+        std::cout << mySocket->prijmi();
+    }
 
     mySocket->sendEndMessage();
     //ThreadData data(3000, 10, mySocket);

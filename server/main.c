@@ -71,6 +71,7 @@ void init_hracia_plocha(HRACIA_PLOCHA *hraciaPlocha, int pocetHracov) {
 
 typedef struct thread_data {
     int pocetHracov;
+    int pocetPripravenychHracov;
     short port;
     ACTIVE_SOCKET* my_socket;
     _Bool koniec;
@@ -79,6 +80,7 @@ typedef struct thread_data {
 
 void thread_data_init(struct thread_data* data, int pocetHracov, short port, ACTIVE_SOCKET* my_socket, HRACIA_PLOCHA* hraciaPlocha) {
     data->pocetHracov = pocetHracov;
+    data->pocetPripravenychHracov = 0;
     data->port = port;
     data->my_socket = my_socket;
     data->hraciaPlocha = hraciaPlocha;
@@ -119,9 +121,70 @@ void* process_client_data(void* thread_data) {
 }
 
 
-void vykonajInstrukciu(struct thread_data *pData) {
+void posliPolicka(THREAD_DATA *pData) {
+    CHAR_BUFFER odpoved;
+    char_buffer_init(&odpoved);
+    char policka[50];
+    sprintf(policka, "%s", "hernaPlocha;");
+    char_buffer_append(&odpoved, policka, strlen(policka));
+    sprintf(policka, "%d", pData->pocetHracov);
+    char_buffer_append(&odpoved, policka, strlen(policka));
+    char_buffer_append(&odpoved, ";", strlen(";"));
+    for (int i = 0; i < pData->pocetHracov; ++i) {
+        sprintf(policka, "%d", pData->hraciaPlocha->zaciatocnyDomcek[i].pocetFiguriekVDomceku);
+        char_buffer_append(&odpoved, policka, strlen(policka));
+        char_buffer_append(&odpoved, ";", strlen(";"));
+    }
+    for (int i = 0; i < pData->pocetHracov; ++i) {
+        sprintf(policka, "%d", pData->hraciaPlocha->koncovyDomcek[i].pocetFiguriekVDomceku);
+        char_buffer_append(&odpoved, policka, strlen(policka));
+        char_buffer_append(&odpoved, ";", strlen(";"));
+    }
+    for (int i = 0; i < 52; ++i) {
+        sprintf(policka, "%c", pData->hraciaPlocha->policka[i]);
+        char_buffer_append(&odpoved, policka, strlen(policka));
+        char_buffer_append(&odpoved, ";", strlen(";"));
+    }
+    active_socket_write_data(pData->my_socket, &odpoved);
+}
+
+void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
+    printf("%s\n", buffer->data);
+    CHAR_BUFFER odpoved;
+    char_buffer_init(&odpoved);
+    if (strcmp(buffer->data, "Hrac 1 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 2 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 3 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 4 je pripraveny") == 0) {
+        data->pocetPripravenychHracov++;
+        char odpovedaj[50];
+        if (data->pocetPripravenychHracov == data->pocetHracov) {
+            sprintf(odpovedaj, "%s", "Hra sa zacne za ...\n");
+            char_buffer_append(&odpoved,odpovedaj, 21);
+            active_socket_write_data(data->my_socket, &odpoved);
+            char_buffer_clear(&odpoved);
+            sleep(1);
+            char_buffer_append(&odpoved, "3\n", 3);
+            active_socket_write_data(data->my_socket, &odpoved);
+            char_buffer_clear(&odpoved);
+            sleep(1);
+            char_buffer_append(&odpoved, "2\n", 3);
+            active_socket_write_data(data->my_socket, &odpoved);
+            char_buffer_clear(&odpoved);
+            sleep(1);
+            char_buffer_append(&odpoved, "1\n", 3);
+            active_socket_write_data(data->my_socket, &odpoved);
+            posliPolicka(data);
+        } else  {
+            sprintf(odpovedaj, "%s", "Je pripravenych ");
+            sprintf(odpovedaj, "%d", data->pocetPripravenychHracov);
+            sprintf(odpovedaj, "%c", '/');
+            sprintf(odpovedaj, "%d", data->pocetHracov);
+            sprintf(odpovedaj, "%s", " hracov\n");
+            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
+            active_socket_write_data(data->my_socket, &odpoved);
+        }
+    }
 
 }
+
 
 void prijmaj(struct thread_data *pData) {
     CHAR_BUFFER buffer;
@@ -132,8 +195,7 @@ void prijmaj(struct thread_data *pData) {
             pData->koniec = true;
             return;
         }
-        vykonajInstrukciu(pData);
-        printf("%s\n", buffer.data);
+        vykonajInstrukciu(&buffer, pData);
     }
     char_buffer_destroy(&buffer);
 }

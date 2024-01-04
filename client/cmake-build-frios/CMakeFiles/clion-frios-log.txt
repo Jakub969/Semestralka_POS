@@ -1,4 +1,4 @@
-/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /tmp/tmp.udpJ7PSNeP -B /tmp/tmp.udpJ7PSNeP/cmake-build-frios
+/usr/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" -S /tmp/tmp.40j9sWrBp9 -B /tmp/tmp.40j9sWrBp9/cmake-build-frios
 -- The C compiler identification is GNU 10.2.1
 -- The CXX compiler identification is GNU 10.2.1
 -- Detecting C compiler ABI info
@@ -13,4 +13,4 @@
 -- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /tmp/tmp.udpJ7PSNeP/cmake-build-frios
+-- Build files have been written to: /tmp/tmp.40j9sWrBp9/cmake-build-frios

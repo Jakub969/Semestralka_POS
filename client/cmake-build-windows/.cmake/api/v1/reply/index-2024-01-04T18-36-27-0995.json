@@ -44,7 +44,11 @@
 			}
 		},
 		{
+<<<<<<<< HEAD:client/cmake-build-windows/.cmake/api/v1/reply/index-2024-01-04T18-36-27-0995.json
 			"jsonFile" : "cmakeFiles-v1-969ded63d6f667a589f5.json",
+========
+			"jsonFile" : "cmakeFiles-v1-6250765344524c261d34.json",
+>>>>>>>> Jakub:client/cmake-build-windows/.cmake/api/v1/reply/index-2024-01-04T16-43-33-0300.json
 			"kind" : "cmakeFiles",
 			"version" : 
 			{
@@ -76,7 +80,11 @@
 		},
 		"cmakeFiles-v1" : 
 		{
+<<<<<<<< HEAD:client/cmake-build-windows/.cmake/api/v1/reply/index-2024-01-04T18-36-27-0995.json
 			"jsonFile" : "cmakeFiles-v1-969ded63d6f667a589f5.json",
+========
+			"jsonFile" : "cmakeFiles-v1-6250765344524c261d34.json",
+>>>>>>>> Jakub:client/cmake-build-windows/.cmake/api/v1/reply/index-2024-01-04T16-43-33-0300.json
 			"kind" : "cmakeFiles",
 			"version" : 
 			{

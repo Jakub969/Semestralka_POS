@@ -26,6 +26,9 @@ public:
     ThreadData(int bufferCapacity, MySocket* serverSocket);
     void produce();
     hodKockou consume();
+
+    MySocket *getServerSocket() const;
+
 private:
     const int bufferCapacity;
     std::queue<hodKockou> buffer;
@@ -71,6 +74,10 @@ hodKockou ThreadData::consume() {
         this->isEmpty.notify_one();
     }
     return item;
+}
+
+MySocket *ThreadData::getServerSocket() const {
+    return serverSocket;
 }
 
 void produce(ThreadData& data) {
@@ -188,6 +195,13 @@ void spracuj(const std::string& basicString, Hrac* hrac, ThreadData* data) {
             }
             hodKockou hod = data->consume();
             std::cout << "Hodil si cislo: " << hod.cislo << std::endl;
+            std::string hracCislo = "hracCislo";
+            std::string idHraca = std::to_string(hrac->getIdHraca());
+            std::string hodS = std::to_string(hod.cislo);
+
+            std::string odpoved = hracCislo + ";" + idHraca + ";" + hodS;
+
+            data->getServerSocket()->sendData(odpoved);
         }
     } else if (spracovanaSprava[0] == "je pripravenych") {
         std::cout << spracovanaSprava[0] << spracovanaSprava[1] << std::endl;

@@ -16,3 +16,11 @@ void Hrac::jePripraveny() {
     this->jeReady = true;
     std::cout << "Hrac " << idHraca << " je pripraveny!" << std::endl;
 }
+
+int Hrac::getIdHraca() const {
+    return idHraca;
+}
+
+char Hrac::getFarbaFigurky() const {
+    return farbaFigurky;
+}

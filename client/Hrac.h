@@ -17,6 +17,10 @@ public:
 
 
     void jePripraveny();
+
+    int getIdHraca() const;
+
+    char getFarbaFigurky() const;
 };
 
 

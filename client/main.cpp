@@ -129,7 +129,7 @@ void spracuj(const std::string& basicString, Hrac* hrac, ThreadData* data) {
         for (int i = 0; i < 15; ++i) {
             for (int j = 0; j < 15; ++j) {
                 if (((i < 6 || i > 8) && (j == 6 || j == 8)) || ((j < 6 || j > 8) && (i == 6 || i == 8)) ||
-                        (i == 0 && j == 7) || (i == 14 && j == 7) || (i == 7 && j == 0) || (i == 7 && j == 14)) {
+                    (i == 0 && j == 7) || (i == 14 && j == 7) || (i == 7 && j == 0) || (i == 7 && j == 14)) {
                     if (index < hernaPlocha.size() && hernaPlocha[index] == 'M') {
                         dvojrozmernePole[i][j] = 'M';
                     } else if (index < hernaPlocha.size() && hernaPlocha[index] == 'C') {
@@ -248,9 +248,9 @@ int main() {
 
     consume(data);
     while(true) {
-         std::string response =  mySocket->prijmi();
-         //std::cout << response;
-         spracuj(response, hrac, &data);
+        std::string response =  mySocket->prijmi();
+        //std::cout << response;
+        spracuj(response, hrac, &data);
     }
 
     mySocket->sendEndMessage();

@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "client::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-client-Debug-a77b1193571165692c2a.json",
+					"jsonFile" : "target-client-Debug-0a451c196e43b1452cee.json",
 					"name" : "client",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/jakub/CLionProjects/Semestralka_POS/client/cmake-build-windows",
-		"source" : "C:/Users/jakub/CLionProjects/Semestralka_POS/client"
+		"build" : "C:/Users/Daniel/CLionProjects/Semestralka_POS/client/cmake-build-windows",
+		"source" : "C:/Users/Daniel/CLionProjects/Semestralka_POS/client"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 5
+		"minor" : 6
 	}
 }

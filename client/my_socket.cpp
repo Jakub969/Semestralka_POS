@@ -58,7 +58,7 @@ MySocket* MySocket::createConnection(std::string hostName, short port) {
 }
 
 MySocket::MySocket(SOCKET socket) :
-    connectSocket(socket) {
+        connectSocket(socket) {
 
 }
 
@@ -89,10 +89,10 @@ void MySocket::sendEndMessage() {
 }
 
 std::string MySocket::prijmi() {
-        char recvbuf[DEFAULT_BUFLEN]; //nastaví pole charov na konstantu 512
-        int recvbuflen = DEFAULT_BUFLEN;
-        recv(connectSocket, recvbuf, recvbuflen, 0);
-        return std::string(recvbuf);
+    char recvbuf[DEFAULT_BUFLEN]; //nastaví pole charov na konstantu 512
+    int recvbuflen = DEFAULT_BUFLEN;
+    recv(connectSocket, recvbuf, recvbuflen, 0);
+    return std::string(recvbuf);
 }
 
 

@@ -20,6 +20,7 @@ typedef struct Figurka{
     int cisloHraca;
     int startovaciaPozicia;
     int aktualnaPozicia;
+    _Bool jeVDomceku;
 }FIGURKA;
 
 typedef struct ZaciatocnyDomcek {
@@ -62,6 +63,7 @@ void init_hracia_plocha(HRACIA_PLOCHA *hraciaPlocha, int pocetHracov) {
         }
         for (int j = 0; j < 4; j++) {
             hraciaPlocha->zaciatocnyDomcek[i].figurka[j].figurka = oznacenieFigurky;
+            hraciaPlocha->zaciatocnyDomcek[i].figurka[j].jeVDomceku = true;
             hraciaPlocha->zaciatocnyDomcek[i].figurka[j].cisloHraca = i + 1;
             hraciaPlocha->zaciatocnyDomcek[i].figurka[j].startovaciaPozicia = i * 13;
             hraciaPlocha->zaciatocnyDomcek[i].figurka[j].aktualnaPozicia = 0;
@@ -218,6 +220,7 @@ void vykonajZmeny(const char *poradieHraca, const char *hodKockou, THREAD_DATA *
         if (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].pocetFiguriekVDomceku > 0) {
             // Ak je v domčeku aspoň jedna figurka, vyberieme prvú a umiestnime ju na štart
             data->hraciaPlocha->policka[data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[0].startovaciaPozicia] = data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[0].figurka;
+            data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[0].jeVDomceku = false;
             data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[0].aktualnaPozicia = data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[0].startovaciaPozicia;
             data->hraciaPlocha->zaciatocnyDomcek[hracIndex].pocetFiguriekVDomceku--;
         } else {
@@ -225,7 +228,7 @@ void vykonajZmeny(const char *poradieHraca, const char *hodKockou, THREAD_DATA *
             // Tu je potrebná logika na výber správnej figurky na pohyb
             // Pre jednoduchosť, tento príklad presúva prvú figurku, ktorá nie je v domčeku
             for (int i = 0; i < 4; i++) {
-                if (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia != 0) {
+                if (!data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].jeVDomceku) {
                     // Pohybujeme vybranou figurkou
                     int novaPozicia = (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia + hod) % 52;
                     data->hraciaPlocha->policka[data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia] = '*';
@@ -239,7 +242,7 @@ void vykonajZmeny(const char *poradieHraca, const char *hodKockou, THREAD_DATA *
         // Ak hráč nehodil 6
         // Logika na výber a pohyb figurky
         for (int i = 0; i < 4; i++) {
-            if (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia != 0) {
+            if (!data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].jeVDomceku) {
                 int novaPozicia = (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia + hod) % 52;
                 data->hraciaPlocha->policka[data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia] = '*';
                 data->hraciaPlocha->policka[novaPozicia] = data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].figurka;

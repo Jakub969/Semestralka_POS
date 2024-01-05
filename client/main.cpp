@@ -258,7 +258,7 @@ int main() {
     std::thread thProduce(produce, std::ref(data));
     while(true) {
         std::string response =  mySocket->prijmi();
-        //std::cout << response;
+        std::cout << response;
         spracuj(response, hrac, &data);
     }
 

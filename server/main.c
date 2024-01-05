@@ -13,6 +13,8 @@
 #include "pos_sockets/active_socket.h"
 #include "pos_sockets/passive_socket.h"
 
+#define MAX_STRINGS 10
+
 typedef struct Figurka{
     char figurka;
     int cisloHraca;
@@ -123,6 +125,41 @@ void* process_client_data(void* thread_data) {
     return NULL;
 }
 
+char** decodeMessage(const char* buffer, const char delimiter, size_t* numStrings) {
+    char** strings = (char**)malloc(MAX_STRINGS * sizeof(char*));
+    if (strings == NULL) {
+        fprintf(stderr, "Memory allocation failed\n");
+        exit(EXIT_FAILURE);
+    }
+
+    size_t count = 0;
+    char* token = strtok((char*)buffer, &delimiter);
+    while (token != NULL) {
+        strings[count] = strdup(token);
+        if (strings[count] == NULL) {
+            fprintf(stderr, "Memory allocation failed\n");
+            exit(EXIT_FAILURE);
+        }
+        count++;
+
+        if (count >= MAX_STRINGS) {
+            fprintf(stderr, "Exceeded maximum number of strings\n");
+            break;
+        }
+
+        token = strtok(NULL, &delimiter);
+    }
+
+    *numStrings = count;
+    return strings;
+}
+
+void freeStringArray(char** strings, size_t numStrings) {
+    for (size_t i = 0; i < numStrings; ++i) {
+        free(strings[i]);
+    }
+    free(strings);
+}
 
 void hracNaRade(THREAD_DATA *pData) {
     CHAR_BUFFER odpoved;
@@ -174,6 +211,8 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
     printf("%s\n", buffer->data);
     CHAR_BUFFER odpoved;
     char_buffer_init(&odpoved);
+    size_t numStrings;
+    char** decodedStrings = decodeMessage(buffer->data, ';', &numStrings);
     if (strcmp(buffer->data, "Hrac 1 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 2 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 3 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 4 je pripraveny") == 0) {
         data->pocetPripravenychHracov++;
         char odpovedaj[50];
@@ -207,8 +246,10 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
             char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
             active_socket_write_data(data->my_socket, &odpoved);
         }
+    } else if (strcmp(decodedStrings[1], "hracCislo") == 0) {
+        printf("Ahoj");
     }
-
+    freeStringArray(decodedStrings, numStrings);
 }
 
 

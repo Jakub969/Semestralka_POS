@@ -62,10 +62,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /tmp/tmp.8pPYlcOt44
+CMAKE_SOURCE_DIR = /tmp/tmp.1kRmHROS2c
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /tmp/tmp.8pPYlcOt44/cmake-build-frios
+CMAKE_BINARY_DIR = /tmp/tmp.1kRmHROS2c/cmake-build-frios
 
 # Include any dependencies generated for this target.
 include CMakeFiles/server.dir/depend.make
@@ -78,55 +78,55 @@ include CMakeFiles/server.dir/flags.make
 
 CMakeFiles/server.dir/pos_sockets/active_socket.c.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/pos_sockets/active_socket.c.o: ../pos_sockets/active_socket.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/server.dir/pos_sockets/active_socket.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/pos_sockets/active_socket.c.o -c /tmp/tmp.8pPYlcOt44/pos_sockets/active_socket.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.1kRmHROS2c/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/server.dir/pos_sockets/active_socket.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/pos_sockets/active_socket.c.o -c /tmp/tmp.1kRmHROS2c/pos_sockets/active_socket.c
 
 CMakeFiles/server.dir/pos_sockets/active_socket.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/pos_sockets/active_socket.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.8pPYlcOt44/pos_sockets/active_socket.c > CMakeFiles/server.dir/pos_sockets/active_socket.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.1kRmHROS2c/pos_sockets/active_socket.c > CMakeFiles/server.dir/pos_sockets/active_socket.c.i
 
 CMakeFiles/server.dir/pos_sockets/active_socket.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/pos_sockets/active_socket.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.8pPYlcOt44/pos_sockets/active_socket.c -o CMakeFiles/server.dir/pos_sockets/active_socket.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.1kRmHROS2c/pos_sockets/active_socket.c -o CMakeFiles/server.dir/pos_sockets/active_socket.c.s
 
 CMakeFiles/server.dir/pos_sockets/char_buffer.c.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/pos_sockets/char_buffer.c.o: ../pos_sockets/char_buffer.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/server.dir/pos_sockets/char_buffer.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/pos_sockets/char_buffer.c.o -c /tmp/tmp.8pPYlcOt44/pos_sockets/char_buffer.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.1kRmHROS2c/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/server.dir/pos_sockets/char_buffer.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/pos_sockets/char_buffer.c.o -c /tmp/tmp.1kRmHROS2c/pos_sockets/char_buffer.c
 
 CMakeFiles/server.dir/pos_sockets/char_buffer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/pos_sockets/char_buffer.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.8pPYlcOt44/pos_sockets/char_buffer.c > CMakeFiles/server.dir/pos_sockets/char_buffer.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.1kRmHROS2c/pos_sockets/char_buffer.c > CMakeFiles/server.dir/pos_sockets/char_buffer.c.i
 
 CMakeFiles/server.dir/pos_sockets/char_buffer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/pos_sockets/char_buffer.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.8pPYlcOt44/pos_sockets/char_buffer.c -o CMakeFiles/server.dir/pos_sockets/char_buffer.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.1kRmHROS2c/pos_sockets/char_buffer.c -o CMakeFiles/server.dir/pos_sockets/char_buffer.c.s
 
 CMakeFiles/server.dir/pos_sockets/passive_socket.c.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/pos_sockets/passive_socket.c.o: ../pos_sockets/passive_socket.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/server.dir/pos_sockets/passive_socket.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/pos_sockets/passive_socket.c.o -c /tmp/tmp.8pPYlcOt44/pos_sockets/passive_socket.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.1kRmHROS2c/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/server.dir/pos_sockets/passive_socket.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/pos_sockets/passive_socket.c.o -c /tmp/tmp.1kRmHROS2c/pos_sockets/passive_socket.c
 
 CMakeFiles/server.dir/pos_sockets/passive_socket.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/pos_sockets/passive_socket.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.8pPYlcOt44/pos_sockets/passive_socket.c > CMakeFiles/server.dir/pos_sockets/passive_socket.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.1kRmHROS2c/pos_sockets/passive_socket.c > CMakeFiles/server.dir/pos_sockets/passive_socket.c.i
 
 CMakeFiles/server.dir/pos_sockets/passive_socket.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/pos_sockets/passive_socket.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.8pPYlcOt44/pos_sockets/passive_socket.c -o CMakeFiles/server.dir/pos_sockets/passive_socket.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.1kRmHROS2c/pos_sockets/passive_socket.c -o CMakeFiles/server.dir/pos_sockets/passive_socket.c.s
 
 CMakeFiles/server.dir/main.c.o: CMakeFiles/server.dir/flags.make
 CMakeFiles/server.dir/main.c.o: ../main.c
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/server.dir/main.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/main.c.o -c /tmp/tmp.8pPYlcOt44/main.c
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/tmp/tmp.1kRmHROS2c/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/server.dir/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -o CMakeFiles/server.dir/main.c.o -c /tmp/tmp.1kRmHROS2c/main.c
 
 CMakeFiles/server.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/server.dir/main.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.8pPYlcOt44/main.c > CMakeFiles/server.dir/main.c.i
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /tmp/tmp.1kRmHROS2c/main.c > CMakeFiles/server.dir/main.c.i
 
 CMakeFiles/server.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/server.dir/main.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.8pPYlcOt44/main.c -o CMakeFiles/server.dir/main.c.s
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /tmp/tmp.1kRmHROS2c/main.c -o CMakeFiles/server.dir/main.c.s
 
 # Object files for target server
 server_OBJECTS = \
@@ -144,7 +144,7 @@ server: CMakeFiles/server.dir/pos_sockets/passive_socket.c.o
 server: CMakeFiles/server.dir/main.c.o
 server: CMakeFiles/server.dir/build.make
 server: CMakeFiles/server.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/tmp/tmp.1kRmHROS2c/cmake-build-frios/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable server"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/server.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -157,6 +157,6 @@ CMakeFiles/server.dir/clean:
 .PHONY : CMakeFiles/server.dir/clean
 
 CMakeFiles/server.dir/depend:
-	cd /tmp/tmp.8pPYlcOt44/cmake-build-frios && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.8pPYlcOt44 /tmp/tmp.8pPYlcOt44 /tmp/tmp.8pPYlcOt44/cmake-build-frios /tmp/tmp.8pPYlcOt44/cmake-build-frios /tmp/tmp.8pPYlcOt44/cmake-build-frios/CMakeFiles/server.dir/DependInfo.cmake --color=$(COLOR)
+	cd /tmp/tmp.1kRmHROS2c/cmake-build-frios && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /tmp/tmp.1kRmHROS2c /tmp/tmp.1kRmHROS2c /tmp/tmp.1kRmHROS2c/cmake-build-frios /tmp/tmp.1kRmHROS2c/cmake-build-frios /tmp/tmp.1kRmHROS2c/cmake-build-frios/CMakeFiles/server.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/server.dir/depend
 

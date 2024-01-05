@@ -19,6 +19,7 @@ typedef struct Figurka{
     char figurka;
     int cisloHraca;
     int startovaciaPozicia;
+    int aktualnaPozicia;
 }FIGURKA;
 
 typedef struct ZaciatocnyDomcek {
@@ -63,6 +64,7 @@ void init_hracia_plocha(HRACIA_PLOCHA *hraciaPlocha, int pocetHracov) {
             hraciaPlocha->zaciatocnyDomcek[i].figurka[j].figurka = oznacenieFigurky;
             hraciaPlocha->zaciatocnyDomcek[i].figurka[j].cisloHraca = i + 1;
             hraciaPlocha->zaciatocnyDomcek[i].figurka[j].startovaciaPozicia = i * 13;
+            hraciaPlocha->zaciatocnyDomcek[i].figurka[j].aktualnaPozicia = 0;
         }
         hraciaPlocha->zaciatocnyDomcek[i].pocetFiguriekVDomceku = 4;
         hraciaPlocha->koncovyDomcek[i].pocetFiguriekVDomceku = 0;
@@ -207,12 +209,55 @@ void posliPolicka(THREAD_DATA *pData) {
     hracNaRade(pData);
 }
 
+void vykonajZmeny(const char *poradieHraca, const char *hodKockou, THREAD_DATA *data) {
+    int hracIndex = *poradieHraca - '1'; // Prepočet indexu hráča
+    int hod = *hodKockou - '0'; // Prepočet hodnoty hodu
+
+    // Kontrola, či hráč hodil 6
+    if (hod == 6) {
+        if (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].pocetFiguriekVDomceku > 0) {
+            // Ak je v domčeku aspoň jedna figurka, vyberieme prvú a umiestnime ju na štart
+            data->hraciaPlocha->policka[data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[0].startovaciaPozicia] = data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[0].figurka;
+            data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[0].aktualnaPozicia = data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[0].startovaciaPozicia;
+            data->hraciaPlocha->zaciatocnyDomcek[hracIndex].pocetFiguriekVDomceku--;
+        } else {
+            // Ak nie sú žiadne figurky v domčeku, presunieme figurku na hracej ploche
+            // Tu je potrebná logika na výber správnej figurky na pohyb
+            // Pre jednoduchosť, tento príklad presúva prvú figurku, ktorá nie je v domčeku
+            for (int i = 0; i < 4; i++) {
+                if (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia != 0) {
+                    // Pohybujeme vybranou figurkou
+                    int novaPozicia = (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia + hod) % 52;
+                    data->hraciaPlocha->policka[data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia] = '*';
+                    data->hraciaPlocha->policka[novaPozicia] = data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].figurka;
+                    data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia = novaPozicia;
+                    break;
+                }
+            }
+        }
+    } else {
+        // Ak hráč nehodil 6
+        // Logika na výber a pohyb figurky
+        for (int i = 0; i < 4; i++) {
+            if (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia != 0) {
+                int novaPozicia = (data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia + hod) % 52;
+                data->hraciaPlocha->policka[data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia] = '*';
+                data->hraciaPlocha->policka[novaPozicia] = data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].figurka;
+                data->hraciaPlocha->zaciatocnyDomcek[hracIndex].figurka[i].aktualnaPozicia = novaPozicia;
+                break;
+            }
+        }
+    }
+    posliPolicka(data);
+}
+
 void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
     printf("%s\n", buffer->data);
     CHAR_BUFFER odpoved;
     char_buffer_init(&odpoved);
     size_t numStrings;
     char** decodedStrings = decodeMessage(buffer->data, ';', &numStrings);
+
     if (strcmp(buffer->data, "Hrac 1 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 2 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 3 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 4 je pripraveny") == 0) {
         data->pocetPripravenychHracov++;
         char odpovedaj[50];
@@ -246,8 +291,8 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
             char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
             active_socket_write_data(data->my_socket, &odpoved);
         }
-    } else if (strcmp(decodedStrings[1], "hracCislo") == 0) {
-        printf("Ahoj");
+    } else if (strcmp(decodedStrings[0], "hracCislo") == 0) {
+        vykonajZmeny(decodedStrings[1], decodedStrings[2], data);
     }
     freeStringArray(decodedStrings, numStrings);
 }

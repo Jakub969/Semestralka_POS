@@ -120,7 +120,7 @@ void spracuj(const std::string& basicString, Hrac* hrac, ThreadData* data) {
         hernaPlocha.vypisSa();
         if (hrac->getIdHraca() == std::stoi(spracovanaSprava[2])) {
             char tlacidlo;
-            std::cout << "Stlac 'e' aby si hodil kockou.";
+            std::cout << "Stlac 'e' aby si hodil kockou.\n";
             while (tlacidlo != 'e') {
                 std::cin >> tlacidlo;
             }
@@ -135,6 +135,11 @@ void spracuj(const std::string& basicString, Hrac* hrac, ThreadData* data) {
             data->getServerSocket()->sendData(odpoved);
         }
     } else if (spracovanaSprava[0] == "vyhralHrac") {
+        if (hrac->getIdHraca() == stoi(spracovanaSprava[1])) {
+            std::cout << "Gratulujeme vyhral si!!!\n";
+        } else {
+            std::cout << "Vyhral hrac cislo: " << spracovanaSprava[1] << std::endl;
+        }
         data->setJeKoniec(true);
     }
 }
@@ -170,9 +175,9 @@ int main() {
     mySocket->sendData(ohlasServer);
     ThreadData data(10, mySocket);
     std::thread thProduce(produce, std::ref(data));
-    while(data.isJeKoniec()) {
+    while(!data.isJeKoniec()) {
         std::string response =  mySocket->prijmi();
-        std::cout << response;
+        //std::cout << response;
         spracuj(response, hrac, &data);
     }
 

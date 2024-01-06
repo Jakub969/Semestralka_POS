@@ -197,22 +197,17 @@ void vykonajZmeny(const char *poradieHraca, const char *hodKockou, THREAD_DATA *
         for (int i = (hracNaRade - 1) * 4; i < (hracNaRade * 4); ++i) {
             if (data->hraciaPlocha->figurky[i].aktualnaPozicia == data->hraciaPlocha->figurky[i].domcekovaPozicia) {
                 data->hraciaPlocha->figurky[i].aktualnaPozicia = data->hraciaPlocha->figurky[i].startovaciaPozicia;
+                data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok = 1;
                 break;
             } else if (data->hraciaPlocha->figurky[i].aktualnaPozicia != data->hraciaPlocha->figurky[i].domcekovaPozicia && data->hraciaPlocha->figurky[i].aktualnaPozicia != data->hraciaPlocha->figurky[i].zaciatokKoncovehoDomceka) {
                 int novaPozicia = (data->hraciaPlocha->figurky[i].aktualnaPozicia + hod) % 40;
+                if (novaPozicia == 0) {
+                    novaPozicia = 1;
+                }
                 data->hraciaPlocha->figurky[i].aktualnaPozicia = novaPozicia;
                 data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok += hod;
-                if ((data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok > 40)) {
+                if ((data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok > 39)) {
                     data->hraciaPlocha->figurky[i].aktualnaPozicia = data->hraciaPlocha->figurky[i].zaciatokKoncovehoDomceka;
-                    int pocetVKoncovom = 0;
-                    for (int j = (hracNaRade - 1) * 4; j < (hracNaRade * 4); ++j) {
-                        if (data->hraciaPlocha->figurky[j].aktualnaPozicia == data->hraciaPlocha->figurky[j].domcekovaPozicia) {
-                            pocetVKoncovom++;
-                        }
-                    }
-                    if (pocetVKoncovom == 4) {
-                        data->vyhral = true;
-                    }
                 }
                 break;
             }
@@ -221,23 +216,26 @@ void vykonajZmeny(const char *poradieHraca, const char *hodKockou, THREAD_DATA *
         for (int i = (hracNaRade - 1) * 4; i < (hracNaRade * 4); ++i) {
             if (data->hraciaPlocha->figurky[i].aktualnaPozicia != data->hraciaPlocha->figurky[i].domcekovaPozicia && data->hraciaPlocha->figurky[i].aktualnaPozicia != data->hraciaPlocha->figurky[i].zaciatokKoncovehoDomceka) {
                 int novaPozicia = (data->hraciaPlocha->figurky[i].aktualnaPozicia + hod) % 40;
+                if (novaPozicia == 0) {
+                    novaPozicia = 1;
+                }
                 data->hraciaPlocha->figurky[i].aktualnaPozicia = novaPozicia;
                 data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok += hod;
-                if ((data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok > 40)) {
+                if ((data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok > 39)) {
                     data->hraciaPlocha->figurky[i].aktualnaPozicia = data->hraciaPlocha->figurky[i].zaciatokKoncovehoDomceka;
-                    int pocetVKoncovom = 0;
-                    for (int j = (hracNaRade - 1) * 4; j < (hracNaRade * 4); ++j) {
-                        if (data->hraciaPlocha->figurky[j].aktualnaPozicia == data->hraciaPlocha->figurky[j].domcekovaPozicia) {
-                            pocetVKoncovom++;
-                        }
-                    }
-                    if (pocetVKoncovom == 4) {
-                        data->vyhral = true;
-                    }
                 }
                 break;
             }
         }
+    }
+    int pocetVKoncovom = 0;
+    for (int j = (hracNaRade - 1) * 4; j < (hracNaRade * 4); ++j) {
+        if (data->hraciaPlocha->figurky[j].aktualnaPozicia == data->hraciaPlocha->figurky[j].zaciatokKoncovehoDomceka) {
+            pocetVKoncovom++;
+        }
+    }
+    if (pocetVKoncovom == 4) {
+        data->vyhral = true;
     }
     posliAktualnyStav(data);
 }
@@ -270,7 +268,7 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
             active_socket_write_data(data->my_socket, &odpoved);
             posliAktualnyStav(data);
         }
-    }else if ((strcmp(decodedStrings[0], "hracCislo") == 0)) {
+    } else if ((strcmp(decodedStrings[0], "hracCislo") == 0)) {
         vykonajZmeny(decodedStrings[1], decodedStrings[2], data);
     }
     freeStringArray(decodedStrings, numStrings);

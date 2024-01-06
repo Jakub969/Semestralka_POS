@@ -96,6 +96,9 @@
 		<Unit filename="C:/Users/jakub/CLionProjects/Semestralka_POS/client/Hrac.h">
 			<Option target="client"/>
 		</Unit>
+		<Unit filename="C:/Users/jakub/CLionProjects/Semestralka_POS/client/libds/heap_monitor.h">
+			<Option target="client"/>
+		</Unit>
 		<Unit filename="C:/Users/jakub/CLionProjects/Semestralka_POS/client/main.cpp">
 			<Option target="client"/>
 		</Unit>

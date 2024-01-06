@@ -9,6 +9,9 @@
 #include "Hrac.h"
 #include "HernaPlocha.h"
 #include <sstream>
+#define  _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
 
 
 struct hodKockou {
@@ -122,12 +125,11 @@ void spracuj(const std::string& basicString, Hrac hrac, ThreadData* data) {
         HernaPlocha hernaPlocha(spracovanaSprava);
         hernaPlocha.vypisSa();
         if (hrac.getIdHraca() == std::stoi(spracovanaSprava[2])) {
-            char tlacidlo;
+            char tlacidlo = 'd';
             std::cout << "Stlac 'e' aby si hodil kockou.\n";
             while (tlacidlo != 'e') {
                 std::cin >> tlacidlo;
             }
-            tlacidlo = 'd';
             hodKockou hod = data->consume();
             std::cout << "Hodil si cislo: " << hod.cislo << std::endl;
             std::string hracCislo = "hracCislo";
@@ -151,6 +153,9 @@ void spracuj(const std::string& basicString, Hrac hrac, ThreadData* data) {
 }
 
 int main() {
+    #ifdef _DEBUG
+        _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    #endif
     srand(time(0));
     //printf("Hello");
     MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15874);
@@ -172,7 +177,7 @@ int main() {
     Hrac hrac(cisloHraca, farba);
 
     std::cout << "Ak si pripraveny stlac 'r'." << std::endl;
-    char ready;
+    char ready = 't';
     while(ready != 'r') {
         std::cin >> ready;
     }
@@ -189,7 +194,7 @@ int main() {
     }
     mySocket->sendEndMessage();
     thProduce.join();
-    delete mySocket;
-    mySocket = nullptr;
+    //delete mySocket;
+    //mySocket = nullptr;
     return 0;
 }

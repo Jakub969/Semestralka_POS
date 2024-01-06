@@ -119,6 +119,7 @@ void* process_client_data(void* thread_data) {
         char_buffer_append(&buffer, oznacenie, strlen(oznacenie));
         char_buffer_append(&buffer, "\0", 1);
         active_socket_write_data(data->my_socket, &buffer);
+        char_buffer_destroy(&buffer);
         printf("Pripojil sa hrac %d s oznacenim %s\n", i+1, oznacenie);
     }
     passive_socket_stop_listening(&sock_passive);
@@ -129,10 +130,10 @@ void* process_client_data(void* thread_data) {
     return NULL;
 }
 
-char** decodeMessage(const char* buffer, const char delimiter, size_t* numStrings) {
+char** dekodujSpravu(const char* buffer, const char delimiter, size_t* numStrings) {
     char** strings = (char**)malloc(MAX_STRINGS * sizeof(char*));
     if (strings == NULL) {
-        fprintf(stderr, "Memory allocation failed\n");
+        fprintf(stderr, "Alokovanie pamate zlyhalo\n");
         exit(EXIT_FAILURE);
     }
 
@@ -141,13 +142,13 @@ char** decodeMessage(const char* buffer, const char delimiter, size_t* numString
     while (token != NULL) {
         strings[count] = strdup(token);
         if (strings[count] == NULL) {
-            fprintf(stderr, "Memory allocation failed\n");
+            fprintf(stderr, "Alokovanie pamate zlyhalo\n");
             exit(EXIT_FAILURE);
         }
         count++;
 
         if (count >= MAX_STRINGS) {
-            fprintf(stderr, "Exceeded maximum number of strings\n");
+            fprintf(stderr, "Prekrocene maximalne mnozstvo stringov\n");
             break;
         }
 
@@ -158,7 +159,7 @@ char** decodeMessage(const char* buffer, const char delimiter, size_t* numString
     return strings;
 }
 
-void freeStringArray(char** strings, size_t numStrings) {
+void uvolniPamatPolaStringov(char** strings, size_t numStrings) {
     for (size_t i = 0; i < numStrings; ++i) {
         free(strings[i]);
     }
@@ -186,10 +187,10 @@ void posliAktualnyStav(THREAD_DATA *pData) {
         char_buffer_append(&odpoved, "\0", 1);
         active_socket_write_data(pData->my_socket, &odpoved);
     }
+    char_buffer_destroy(&odpoved);
 }
 
 void vykonajZmeny(const char *poradieHraca, const char *hodKockou, THREAD_DATA *data) {
-
     data->hracNaRade = atoi(poradieHraca);
     int hracNaRade = atoi(poradieHraca);
     int hod = atoi(hodKockou);
@@ -245,7 +246,7 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
     CHAR_BUFFER odpoved;
     char_buffer_init(&odpoved);
     size_t numStrings;
-    char** decodedStrings = decodeMessage(buffer->data, ';', &numStrings);
+    char** decodedStrings = dekodujSpravu(buffer->data, ';', &numStrings);
 
     if ((strcmp(decodedStrings[0], "hracPripraveny") == 0)) {
         data->pocetPripravenychHracov++;
@@ -271,7 +272,8 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
     } else if ((strcmp(decodedStrings[0], "hracCislo") == 0)) {
         vykonajZmeny(decodedStrings[1], decodedStrings[2], data);
     }
-    freeStringArray(decodedStrings, numStrings);
+    uvolniPamatPolaStringov(decodedStrings, numStrings);
+    char_buffer_destroy(&odpoved);
 }
 
 
@@ -282,6 +284,7 @@ void prijmaj(struct thread_data *pData) {
         if (active_socket_is_end_message(pData->my_socket,&buffer)) {
             active_socket_stop_reading(pData->my_socket);
             pData->koniec = true;
+            char_buffer_destroy(&buffer);
             return;
         }
         vykonajInstrukciu(&buffer, pData);

@@ -27,10 +27,8 @@ public:
     ThreadData(int bufferCapacity, MySocket* serverSocket);
     void produce();
     hodKockou consume();
-
+    void ukonci();
     bool isJeKoniec() const;
-
-    void setJeKoniec(bool jeKoniec);
 
     MySocket *getServerSocket() const;
 
@@ -91,8 +89,13 @@ bool ThreadData::isJeKoniec() const {
     return jeKoniec;
 }
 
-void ThreadData::setJeKoniec(bool jeKoniec) {
-    ThreadData::jeKoniec = jeKoniec;
+void ThreadData::ukonci() {
+    {
+        std::unique_lock<std::mutex> lock(this->mutex);
+        this->jeKoniec = true;
+        this->isFull.notify_all();
+        this->isEmpty.notify_all();
+    }
 }
 
 void produce(ThreadData& data) {
@@ -124,7 +127,7 @@ void spracuj(const std::string& basicString, Hrac hrac, ThreadData* data) {
             while (tlacidlo != 'e') {
                 std::cin >> tlacidlo;
             }
-            tlacidlo = 'd';
+            //tlacidlo = 'd';
             hodKockou hod = data->consume();
             std::cout << "Hodil si cislo: " << hod.cislo << std::endl;
             std::string hracCislo = "hracCislo";
@@ -141,7 +144,7 @@ void spracuj(const std::string& basicString, Hrac hrac, ThreadData* data) {
         } else {
             std::cout << "Vyhral hrac cislo: " << spracovanaSprava[1] << std::endl;
         }
-        data->setJeKoniec(true);
+        data->ukonci();
     } else if (spracovanaSprava[0] == "Hra sa zacne za ..." || spracovanaSprava[0] == "1" || spracovanaSprava[0] == "2"|| spracovanaSprava[0] == "3") {
         std::cout << spracovanaSprava[0] << std::endl;
     }

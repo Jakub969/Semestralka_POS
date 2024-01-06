@@ -1,0 +1,5 @@
+# ninja log v5
+20	3467	7260898720910873	CMakeFiles/client.dir/my_socket.cpp.obj	7bf966fd0d4c5c6e
+10	4426	7260962214006662	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
+4427	4800	7260962217698223	client.exe	24fdd78216544d1e
+14	737	7260898693588083	CMakeFiles/client.dir/Hrac.cpp.obj	dd2ebf5103a473cc

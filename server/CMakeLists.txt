@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.18)
+﻿cmake_minimum_required(VERSION 3.18)
 project(server C)
 
 set(CMAKE_C_STANDARD 11)
@@ -16,6 +16,7 @@ add_executable(server
         pos_sockets/passive_socket.h
         buffer.h
         main.c
-        main.c)
+        main.c
+        buffer.h)
 
 target_link_libraries(server pthread)

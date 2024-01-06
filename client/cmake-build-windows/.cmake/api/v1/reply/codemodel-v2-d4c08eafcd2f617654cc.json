@@ -1,0 +1,64 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.18"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "client",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "client::@6890427a1f51a3e7e1df",
+<<<<<<<< HEAD:client/cmake-build-windows/.cmake/api/v1/reply/codemodel-v2-23d9dd0f3e9c6ff6b59c.json
+					"jsonFile" : "target-client-Debug-bfe7b20157b6ac564d19.json",
+========
+					"jsonFile" : "target-client-Debug-4eb007236ec9baf4bbb7.json",
+>>>>>>>> origin/main:client/cmake-build-windows/.cmake/api/v1/reply/codemodel-v2-d4c08eafcd2f617654cc.json
+					"name" : "client",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "C:/Users/Daniel/CLionProjects/Semestralka_POS/client/cmake-build-windows",
+		"source" : "C:/Users/Daniel/CLionProjects/Semestralka_POS/client"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 6
+	}
+}

@@ -5,21 +5,16 @@
       <paths name="Remote Host (107be339-82c4-4f6c-9a5c-fbf633dcdeab)">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/tmp.zLDVXiM0qb" local="$PROJECT_DIR$" />
+            <mapping local="$PROJECT_DIR$" web="/" />
           </mappings>
-          <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-frios" />
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-frios" />
-          </excludedPaths>
         </serverdata>
       </paths>
       <paths name="Remote Host (1c7ee128-100b-4465-8a68-5da5e6118f43)">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/tmp.1kRmHROS2c" local="$PROJECT_DIR$" />
+            <mapping deploy="/tmp/tmp.MGoFZaKFmO" local="$PROJECT_DIR$" />
           </mappings>
           <excludedPaths>
-            <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-frios" />
             <excludedPath local="true" path="$PROJECT_DIR$/cmake-build-frios" />
           </excludedPaths>
         </serverdata>

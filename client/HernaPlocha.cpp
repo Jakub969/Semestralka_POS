@@ -1,5 +1,5 @@
 //
-// Created by jakub on 5. 1. 2024.
+// Created by Daniel on 6. 1. 2024.
 //
 
 #include "HernaPlocha.h"
@@ -123,7 +123,7 @@ std::string HernaPlocha::getFarbuHracaNaRade() {
 Suradnica HernaPlocha::getSuradnicuPodlaIndexu(int index) {
     std::vector<Suradnica> slovnik = this->getSlovnik();
     std::vector<Suradnica> slovnikZaporny = this->getZapornySlovnik();
-    
+
     if (index > 0) {
         return slovnik[index];
     } else {
@@ -231,3 +231,4 @@ Suradnica::Suradnica(int r, int s) {
     this->r = r;
     this->s = s;
 }
+

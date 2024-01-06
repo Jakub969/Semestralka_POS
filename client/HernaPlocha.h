@@ -1,5 +1,5 @@
 //
-// Created by jakub on 5. 1. 2024.
+// Created by Daniel on 6. 1. 2024.
 //
 
 #ifndef CLIENT_HERNAPLOCHA_H
@@ -43,3 +43,4 @@ private:
 
 
 #endif //CLIENT_HERNAPLOCHA_H
+

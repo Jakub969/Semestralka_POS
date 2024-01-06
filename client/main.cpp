@@ -194,7 +194,7 @@ int main() {
     }
     mySocket->sendEndMessage();
     thProduce.join();
-    //delete mySocket;
-    //mySocket = nullptr;
+    delete mySocket;
+    mySocket = nullptr;
     return 0;
 }

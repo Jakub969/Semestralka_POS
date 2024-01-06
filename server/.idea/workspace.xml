@@ -20,7 +20,7 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="skoro nedokonceny projekt">
+    <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="client sa ukonci">
       <change beforePath="$PROJECT_DIR$/../client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -120,7 +120,7 @@
       <workItem from="1704300714870" duration="2096000" />
       <workItem from="1704382500387" duration="491000" />
       <workItem from="1704544395746" duration="12978000" />
-      <workItem from="1704562346798" duration="1378000" />
+      <workItem from="1704562346798" duration="1924000" />
     </task>
     <task id="LOCAL-00001" summary="upravy cmake">
       <option name="closed" value="true" />
@@ -162,7 +162,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704557386106</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="client sa ukonci">
+      <option name="closed" value="true" />
+      <created>1704564283929</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1704564283929</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -181,7 +189,8 @@
     <MESSAGE value="herna plocha v2" />
     <MESSAGE value="skoro hotovy projekt" />
     <MESSAGE value="skoro nedokonceny projekt" />
-    <option name="LAST_COMMIT_MESSAGE" value="skoro nedokonceny projekt" />
+    <MESSAGE value="client sa ukonci" />
+    <option name="LAST_COMMIT_MESSAGE" value="client sa ukonci" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

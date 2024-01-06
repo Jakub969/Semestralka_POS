@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/client.dir/HernaPlocha.cpp.obj"
+  "CMakeFiles/client.dir/HernaPlocha.cpp.obj.d"
   "CMakeFiles/client.dir/Hrac.cpp.obj"
   "CMakeFiles/client.dir/Hrac.cpp.obj.d"
   "CMakeFiles/client.dir/main.cpp.obj"

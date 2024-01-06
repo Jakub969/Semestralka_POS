@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Users/jakub/CLionProjects/Semestralka_POS/client/HernaPlocha.cpp">
+			<Option target="client"/>
+		</Unit>
+		<Unit filename="C:/Users/jakub/CLionProjects/Semestralka_POS/client/HernaPlocha.h">
+			<Option target="client"/>
+		</Unit>
 		<Unit filename="C:/Users/jakub/CLionProjects/Semestralka_POS/client/Hrac.cpp">
 			<Option target="client"/>
 		</Unit>

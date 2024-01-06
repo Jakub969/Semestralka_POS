@@ -37,11 +37,15 @@
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/HernaPlocha.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/HernaPlocha.cpp.obj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/Hrac.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/Hrac.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/embed.manifest" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/manifest.rc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/manifest.res" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/my_socket.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/my_socket.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/vc140.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/vc140.pdb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/vc140.pdb" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-environment.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/CMakeOutput.log" afterDir="false" />
     </list>
@@ -147,7 +151,7 @@
       <workItem from="1704382500387" duration="491000" />
       <workItem from="1704544395746" duration="12978000" />
       <workItem from="1704562346798" duration="7537000" />
-      <workItem from="1704570184869" duration="1295000" />
+      <workItem from="1704570184869" duration="1413000" />
     </task>
     <task id="LOCAL-00001" summary="upravy cmake">
       <option name="closed" value="true" />

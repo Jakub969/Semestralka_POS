@@ -251,20 +251,20 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
         data->pocetPripravenychHracov++;
         char odpovedaj[50];
         if (data->pocetPripravenychHracov == data->pocetHracov) {
-            sprintf(odpovedaj, "%s", "Hra sa zacne za ...\n");
-            char_buffer_append(&odpoved,odpovedaj, 21);
+            sprintf(odpovedaj, "%s", "Hra sa zacne za ...;");
+            char_buffer_append(&odpoved, odpovedaj, 21);
             active_socket_write_data(data->my_socket, &odpoved);
             char_buffer_clear(&odpoved);
             sleep(1);
-            char_buffer_append(&odpoved, "3\n", 3);
+            char_buffer_append(&odpoved, "3;", 3);
             active_socket_write_data(data->my_socket, &odpoved);
             char_buffer_clear(&odpoved);
             sleep(1);
-            char_buffer_append(&odpoved, "2\n", 3);
+            char_buffer_append(&odpoved, "2;", 3);
             active_socket_write_data(data->my_socket, &odpoved);
             char_buffer_clear(&odpoved);
             sleep(1);
-            char_buffer_append(&odpoved, "1\n", 3);
+            char_buffer_append(&odpoved, "1;", 3);
             active_socket_write_data(data->my_socket, &odpoved);
             posliAktualnyStav(data);
         }
@@ -308,6 +308,7 @@ int main() {
     }
     pthread_join(th_receive, NULL);
 
+    hracia_plocha_destroy(&hraciaPlocha);
     thread_data_destroy(&data);
     active_socket_destroy(&my_socket);
 

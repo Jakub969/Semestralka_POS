@@ -10,7 +10,9 @@
     <option name="reloaded" value="true" />
   </component>
   <component name="CMakeRunConfigurationManager">
-    <generated />
+    <generated>
+      <config projectName="server" targetName="server" />
+    </generated>
   </component>
   <component name="CMakeSettings" AUTO_RELOAD="true">
     <configurations>
@@ -18,11 +20,35 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="herna plocha v2">
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeCache.txt" beforeDir="false" />
+    <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="skoro hotovy projekt">
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cache-v2-7f273d27f83ca4ec5730.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cmakeFiles-v1-1debc788bed3280f82d9.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cmakeFiles-v1-36693f052e4a1a9a9544.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/codemodel-v2-d4c08eafcd2f617654cc.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/index-2024-01-06T11-59-27-0802.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/target-client-Debug-4eb007236ec9baf4bbb7.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/toolchains-v1-0bbed5ce5795aa96e4b8.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CMakeCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CMakeCXXCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CMakeRCCompiler.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CMakeSystem.cmake" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.27.0/CompilerIdCXX/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/rules.ninja" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/client.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/client.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-frios/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/clion-FRIOS-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/clion-FRIOS-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +150,7 @@
       <workItem from="1704299805527" duration="715000" />
       <workItem from="1704300714870" duration="2096000" />
       <workItem from="1704382500387" duration="491000" />
-      <workItem from="1704544395746" duration="28000" />
+      <workItem from="1704544395746" duration="12737000" />
     </task>
     <task id="LOCAL-00001" summary="upravy cmake">
       <option name="closed" value="true" />
@@ -150,22 +176,63 @@
       <option name="project" value="LOCAL" />
       <updated>1704543887968</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="skoro hotovy projekt">
+      <option name="closed" value="true" />
+      <created>1704548283940</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1704548283940</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VCPKGProject">
+    <isAutomaticEditVcpkgJson value="true" />
     <isAutomaticCheckingOnLaunch value="false" />
     <isAutomaticFoundErrors value="true" />
-    <isAutomaticReloadCMake value="true" />
+    <isAutomaticFoundErrors value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="upravy cmake" />
     <MESSAGE value="upravy cmake v2" />
     <MESSAGE value="upravenie clienta" />
     <MESSAGE value="herna plocha v2" />
-    <option name="LAST_COMMIT_MESSAGE" value="herna plocha v2" />
+    <MESSAGE value="skoro hotovy projekt" />
+    <option name="LAST_COMMIT_MESSAGE" value="skoro hotovy projekt" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.c</url>
+          <line>249</line>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.c</url>
+          <line>243</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.c</url>
+          <line>281</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/pos_sockets/active_socket.c</url>
+          <line>93</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/pos_sockets/active_socket.c</url>
+          <line>101</line>
+          <option name="timeStamp" value="18" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

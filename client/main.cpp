@@ -56,11 +56,11 @@ ThreadData::ThreadData(int bufferCapacity, MySocket* serverSocket) :
 }
 
 void ThreadData::produce() {
-    for (int i = 0; i < 1000; ++i) {
+    while (!this->jeKoniec) {
         hodKockou item = hodKockou::generate();
         {
             std::unique_lock<std::mutex> lock(this->mutex);
-            while (static_cast<int>(this->buffer.size()) >= bufferCapacity) {
+            while (static_cast<int>(this->buffer.size()) >= bufferCapacity && !this->jeKoniec) {
                 this->isEmpty.wait(lock);
             }
             this->buffer.push(item);
@@ -73,7 +73,7 @@ hodKockou ThreadData::consume() {
     hodKockou item;
     {
         std::unique_lock<std::mutex> lock(this->mutex);
-        while (this->buffer.size() <= 0) {
+        while (this->buffer.size() <= 0 && !this->jeKoniec) {
             this->isFull.wait(lock);
         }
         item = this->buffer.front();
@@ -111,23 +111,24 @@ std::vector<std::string> spracujSpravuZoServera(const std::string& basicString) 
     return vysledok;
 }
 
-void spracuj(const std::string& basicString, Hrac* hrac, ThreadData* data) {
+void spracuj(const std::string& basicString, Hrac hrac, ThreadData* data) {
     std::vector<std::string> spracovanaSprava = spracujSpravuZoServera(basicString);
     // hernaPlocha;pocetHracov;hracNaRade;aktualnePozicieFigurky...;
     if (spracovanaSprava[0] == "hernaPlocha") {
         //std::cout << std::string(25, '\n');
         HernaPlocha hernaPlocha(spracovanaSprava);
         hernaPlocha.vypisSa();
-        if (hrac->getIdHraca() == std::stoi(spracovanaSprava[2])) {
+        if (hrac.getIdHraca() == std::stoi(spracovanaSprava[2])) {
             char tlacidlo;
             std::cout << "Stlac 'e' aby si hodil kockou.\n";
             while (tlacidlo != 'e') {
                 std::cin >> tlacidlo;
             }
+            tlacidlo = 'd';
             hodKockou hod = data->consume();
             std::cout << "Hodil si cislo: " << hod.cislo << std::endl;
             std::string hracCislo = "hracCislo";
-            std::string idHraca = std::to_string(hrac->getIdHraca());
+            std::string idHraca = std::to_string(hrac.getIdHraca());
             std::string hodS = std::to_string(hod.cislo);
 
             std::string odpoved = hracCislo + ";" + idHraca + ";" + hodS;
@@ -135,12 +136,14 @@ void spracuj(const std::string& basicString, Hrac* hrac, ThreadData* data) {
             data->getServerSocket()->sendData(odpoved);
         }
     } else if (spracovanaSprava[0] == "vyhralHrac") {
-        if (hrac->getIdHraca() == stoi(spracovanaSprava[1])) {
+        if (hrac.getIdHraca() == stoi(spracovanaSprava[1])) {
             std::cout << "Gratulujeme vyhral si!!!\n";
         } else {
             std::cout << "Vyhral hrac cislo: " << spracovanaSprava[1] << std::endl;
         }
         data->setJeKoniec(true);
+    } else if (spracovanaSprava[0] == "Hra sa zacne za ..." || spracovanaSprava[0] == "1" || spracovanaSprava[0] == "2"|| spracovanaSprava[0] == "3") {
+        std::cout << spracovanaSprava[0] << std::endl;
     }
 }
 
@@ -152,6 +155,7 @@ int main() {
     std::vector<std::string> oddeleneSpravy = spracujSpravuZoServera(sprava);
     std::string farbaFigurky;
     if (oddeleneSpravy[1] == "M") {
+        farbaFigurky = "Modra 'M'";
     } else if (oddeleneSpravy[1] == "C") {
         farbaFigurky = "Cervena 'C'";
     } else if (oddeleneSpravy[1] == "Z") {
@@ -162,14 +166,14 @@ int main() {
     std::cout << "Si hrac cislo " << oddeleneSpravy[0] << " s farbou figurky " << farbaFigurky << std::endl;
     char farba = oddeleneSpravy[1][0];
     int cisloHraca = stoi(sprava);
-    Hrac* hrac = new Hrac(cisloHraca, farba);
+    Hrac hrac(cisloHraca, farba);
 
     std::cout << "Ak si pripraveny stlac 'r'." << std::endl;
     char ready;
     while(ready != 'r') {
         std::cin >> ready;
     }
-    hrac->jePripraveny();
+    hrac.jePripraveny();
     std::string ohlasServer;
     ohlasServer = "hracPripraveny;" + oddeleneSpravy[0];
     mySocket->sendData(ohlasServer);
@@ -180,12 +184,10 @@ int main() {
         //std::cout << response;
         spracuj(response, hrac, &data);
     }
-
+    //TODO program sa neukonci spravne zasekne sa na thProduce.join();
+    std::cout << data.isJeKoniec() << std::endl;
     mySocket->sendEndMessage();
-
     thProduce.join();
-    delete hrac;
-    hrac = nullptr;
     delete mySocket;
     mySocket = nullptr;
     return 0;

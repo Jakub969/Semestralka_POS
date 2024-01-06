@@ -65,6 +65,7 @@ typedef struct thread_data {
     short port;
     ACTIVE_SOCKET* my_socket;
     _Bool koniec;
+    _Bool vyhral;
     HRACIA_PLOCHA* hraciaPlocha;
 } THREAD_DATA;
 
@@ -76,6 +77,7 @@ void thread_data_init(struct thread_data* data, int pocetHracov, short port, ACT
     data->my_socket = my_socket;
     data->hraciaPlocha = hraciaPlocha;
     data->koniec = false;
+    data->vyhral = false;
 }
 
 void thread_data_destroy(struct thread_data* data) {
@@ -176,10 +178,68 @@ void posliAktualnyStav(THREAD_DATA *pData) {
     }
     char_buffer_append(&odpoved, "\0", 1);
     active_socket_write_data(pData->my_socket, &odpoved);
+    if (pData->vyhral == true) {
+        char vyhra[50];
+        char_buffer_clear(&odpoved);
+        sprintf(vyhra, "vyhralHrac;%d", pData->hracNaRade);
+        char_buffer_append(&odpoved, vyhra, strlen(vyhra));
+        char_buffer_append(&odpoved, "\0", 1);
+        active_socket_write_data(pData->my_socket, &odpoved);
+    }
 }
 
 void vykonajZmeny(const char *poradieHraca, const char *hodKockou, THREAD_DATA *data) {
 
+    data->hracNaRade = atoi(poradieHraca);
+    int hracNaRade = atoi(poradieHraca);
+    int hod = atoi(hodKockou);
+    if (hod == 6) {
+        for (int i = (hracNaRade - 1) * 4; i < (hracNaRade * 4); ++i) {
+            if (data->hraciaPlocha->figurky[i].aktualnaPozicia == data->hraciaPlocha->figurky[i].domcekovaPozicia) {
+                data->hraciaPlocha->figurky[i].aktualnaPozicia = data->hraciaPlocha->figurky[i].startovaciaPozicia;
+                break;
+            } else if (data->hraciaPlocha->figurky[i].aktualnaPozicia != data->hraciaPlocha->figurky[i].domcekovaPozicia && data->hraciaPlocha->figurky[i].aktualnaPozicia != data->hraciaPlocha->figurky[i].zaciatokKoncovehoDomceka) {
+                int novaPozicia = (data->hraciaPlocha->figurky[i].aktualnaPozicia + hod) % 40;
+                data->hraciaPlocha->figurky[i].aktualnaPozicia = novaPozicia;
+                data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok += hod;
+                if ((data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok > 40)) {
+                    data->hraciaPlocha->figurky[i].aktualnaPozicia = data->hraciaPlocha->figurky[i].zaciatokKoncovehoDomceka;
+                    int pocetVKoncovom = 0;
+                    for (int j = (hracNaRade - 1) * 4; j < (hracNaRade * 4); ++j) {
+                        if (data->hraciaPlocha->figurky[j].aktualnaPozicia == data->hraciaPlocha->figurky[j].domcekovaPozicia) {
+                            pocetVKoncovom++;
+                        }
+                    }
+                    if (pocetVKoncovom == 4) {
+                        data->vyhral = true;
+                    }
+                }
+                break;
+            }
+        }
+    } else {
+        for (int i = (hracNaRade - 1) * 4; i < (hracNaRade * 4); ++i) {
+            if (data->hraciaPlocha->figurky[i].aktualnaPozicia != data->hraciaPlocha->figurky[i].domcekovaPozicia && data->hraciaPlocha->figurky[i].aktualnaPozicia != data->hraciaPlocha->figurky[i].zaciatokKoncovehoDomceka) {
+                int novaPozicia = (data->hraciaPlocha->figurky[i].aktualnaPozicia + hod) % 40;
+                data->hraciaPlocha->figurky[i].aktualnaPozicia = novaPozicia;
+                data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok += hod;
+                if ((data->hraciaPlocha->figurky[i].pocetPrejdenychPolicok > 40)) {
+                    data->hraciaPlocha->figurky[i].aktualnaPozicia = data->hraciaPlocha->figurky[i].zaciatokKoncovehoDomceka;
+                    int pocetVKoncovom = 0;
+                    for (int j = (hracNaRade - 1) * 4; j < (hracNaRade * 4); ++j) {
+                        if (data->hraciaPlocha->figurky[j].aktualnaPozicia == data->hraciaPlocha->figurky[j].domcekovaPozicia) {
+                            pocetVKoncovom++;
+                        }
+                    }
+                    if (pocetVKoncovom == 4) {
+                        data->vyhral = true;
+                    }
+                }
+                break;
+            }
+        }
+    }
+    posliAktualnyStav(data);
 }
 
 void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
@@ -189,7 +249,7 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
     size_t numStrings;
     char** decodedStrings = decodeMessage(buffer->data, ';', &numStrings);
 
-    if (strcmp(buffer->data, "Hrac 1 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 2 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 3 je pripraveny") == 0 || strcmp(buffer->data, "Hrac 4 je pripraveny") == 0) {
+    if ((strcmp(decodedStrings[0], "hracPripraveny") == 0)) {
         data->pocetPripravenychHracov++;
         char odpovedaj[50];
         if (data->pocetPripravenychHracov == data->pocetHracov) {
@@ -209,20 +269,8 @@ void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
             char_buffer_append(&odpoved, "1\n", 3);
             active_socket_write_data(data->my_socket, &odpoved);
             posliAktualnyStav(data);
-        } else  {
-            sprintf(odpovedaj, "%s", "Je pripravenych; ");
-            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
-            sprintf(odpovedaj, "%d", data->pocetPripravenychHracov);
-            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
-            sprintf(odpovedaj, "%c", '/');
-            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
-            sprintf(odpovedaj, "%d", data->pocetHracov);
-            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
-            sprintf(odpovedaj, "%s", " hracov\n");
-            char_buffer_append(&odpoved,odpovedaj, strlen(odpovedaj));
-            active_socket_write_data(data->my_socket, &odpoved);
         }
-    } else if (strcmp(decodedStrings[0], "hracCislo") == 0) {
+    }else if ((strcmp(decodedStrings[0], "hracCislo") == 0)) {
         vykonajZmeny(decodedStrings[1], decodedStrings[2], data);
     }
     freeStringArray(decodedStrings, numStrings);

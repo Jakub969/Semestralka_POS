@@ -14,4 +14,8 @@ int getIdHraca(Hrac* hrac);
 
 char getFarbaHraca(Hrac* hrac);
 
+void initializeHrac(Hrac* hrac, int idHraca, char farbaFigurky);
+
+int hodKockou();
+
 #endif //SERVER_HRAC_H

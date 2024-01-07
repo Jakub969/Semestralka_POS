@@ -190,7 +190,9 @@ int main() {
     while(!data.isJeKoniec()) {
         std::string response =  mySocket->prijmi();
         //std::cout << response;
-        spracuj(response, hrac, &data);
+        if (!response.empty()) {
+            spracuj(response, hrac, &data);
+        }
     }
     mySocket->sendEndMessage();
     thProduce.join();

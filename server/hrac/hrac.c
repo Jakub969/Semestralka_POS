@@ -3,6 +3,7 @@
 //
 #include <stdio.h>
 #include "hrac.h"
+#include "stdlib.h"
 
 void initializeHrac(Hrac* hrac, int idHraca, char farbaFigurky) {
     hrac->idHraca = idHraca;
@@ -19,4 +20,8 @@ int getIdHraca(Hrac* hrac){
 
 char getFarbaFigurky(const Hrac* hrac) {
     return hrac->farbaFigurky;
+}
+
+int hodKockou() {
+    return rand() % 6 + 1;
 }

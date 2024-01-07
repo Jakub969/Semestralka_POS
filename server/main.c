@@ -291,7 +291,7 @@ void serveroviHracHadzKockou(THREAD_DATA *pData) {
 }
 
 void vykonajInstrukciu(CHAR_BUFFER *buffer, THREAD_DATA *data) {
-    printf("%s\n", buffer->data);
+    //printf("%s\n", buffer->data);
     CHAR_BUFFER odpoved;
     char_buffer_init(&odpoved);
     size_t numStrings;

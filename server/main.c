@@ -12,6 +12,7 @@
 #include "pos_sockets/char_buffer.h"
 #include "pos_sockets/active_socket.h"
 #include "pos_sockets/passive_socket.h"
+#include "hernaPlocha/hernaPlocha.h"
 
 #define MAX_STRINGS 10
 
@@ -294,7 +295,15 @@ void prijmaj(struct thread_data *pData) {
 
 
 int main() {
-    pthread_t th_receive;
+    //hernaPlocha;pocetHracov;hracNaRade;aktualnaPozicia
+    char* parametre[] = {"hernaPlocha", "2", "1", "15", "16", "17", "18", "19", "20", "21", "22"};
+
+    HernaPlocha hernaPlocha;
+    initializeHernaPlocha(&hernaPlocha, parametre);
+    vypisSa(&hernaPlocha);
+    freeHernaPlocha(&hernaPlocha);
+
+    /*pthread_t th_receive;
     int pocetHracov = 1;
     short port = 15874;
     HRACIA_PLOCHA hraciaPlocha;
@@ -313,7 +322,7 @@ int main() {
 
     hracia_plocha_destroy(&hraciaPlocha);
     thread_data_destroy(&data);
-    active_socket_destroy(&my_socket);
+    active_socket_destroy(&my_socket);*/
 
     return 0;
 }

@@ -9,7 +9,7 @@ add_executable(client
         main.cpp
         my_socket.cpp
         my_socket.h
-        Hrac.cpp
-        HernaPlocha.cpp)
+        hrac/Hrac.cpp
+        hernaPlocha/HernaPlocha.cpp)
 
 target_link_libraries(client pthread wsock32 ws2_32)

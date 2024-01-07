@@ -6,8 +6,8 @@
 #include <string>
 #include <condition_variable>
 #include "my_socket.h"
-#include "Hrac.h"
-#include "HernaPlocha.h"
+#include "hrac/Hrac.h"
+#include "hernaPlocha/HernaPlocha.h"
 #include <sstream>
 #define  _CRTDBG_MAP_ALLOC
 #include <stdlib.h>

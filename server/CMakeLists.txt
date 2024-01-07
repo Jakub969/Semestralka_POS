@@ -15,6 +15,10 @@ add_executable(server
         pos_sockets/passive_socket.c
         pos_sockets/passive_socket.h
         buffer.h
-        main.c)
+        main.c
+        hrac/hrac.h
+        hrac/hrac.c
+        hernaPlocha/hernaPlocha.c
+        hernaPlocha/hernaPlocha.h)
 
 target_link_libraries(server pthread)

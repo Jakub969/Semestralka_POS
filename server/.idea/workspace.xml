@@ -21,33 +21,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="client sa ukonci">
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cache-v2-fbd892cfe3d32c7bcf7d.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cmakeFiles-v1-603cf4ea55712d16fcb3.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/codemodel-v2-d4e0384c6584d9eddf2d.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/index-2024-01-06T19-40-11-0422.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/target-client-Debug-5908c89cea5f01333aa7.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/toolchains-v1-7ee6729b8fdd2ab3160b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeRCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/HernaPlocha.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/HernaPlocha.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/Hrac.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/Hrac.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/embed.manifest" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/manifest.rc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/manifest.res" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/my_socket.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/my_socket.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/vc140.pdb" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hernaPlocha/hernaPlocha.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hernaPlocha/hernaPlocha.h" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hrac/hrac.c" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/hrac/hrac.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/HernaPlocha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/hernaPlocha/HernaPlocha.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/HernaPlocha.h" beforeDir="false" afterPath="$PROJECT_DIR$/../client/hernaPlocha/HernaPlocha.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/Hrac.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/hrac/Hrac.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/Hrac.h" beforeDir="false" afterPath="$PROJECT_DIR$/../client/hrac/Hrac.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/clion-FRIOS-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/clion-FRIOS-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,13 +93,14 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "settings.editor.selected.configurable": "dynamic.analysis.tools.valgrind",
+    "structure.view.defaults.are.configured": "true",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RunManager" selected="CMake Application.server">
-    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
-        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="server" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="server" TARGET_NAME="server" CONFIG_NAME="frios" RUN_TARGET_PROJECT_NAME="server" RUN_TARGET_NAME="server">
@@ -152,6 +141,7 @@
       <workItem from="1704544395746" duration="12978000" />
       <workItem from="1704562346798" duration="7537000" />
       <workItem from="1704570184869" duration="1413000" />
+      <workItem from="1704619254655" duration="5080000" />
     </task>
     <task id="LOCAL-00001" summary="upravy cmake">
       <option name="closed" value="true" />

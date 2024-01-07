@@ -296,7 +296,7 @@ void prijmaj(struct thread_data *pData) {
 
 int main() {
     //hernaPlocha;pocetHracov;hracNaRade;aktualnaPozicia
-    char* parametre[] = {"hernaPlocha", "2", "1", "15", "16", "17", "18", "19", "20", "21", "22"};
+    char* parametre[] = {"hernaPlocha", "1", "1", "0", "-1", "-2", "-3"};
 
     HernaPlocha hernaPlocha;
     initializeHernaPlocha(&hernaPlocha, parametre);

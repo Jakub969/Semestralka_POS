@@ -20,22 +20,24 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="client sa ukonci">
-      <change afterPath="$PROJECT_DIR$/hernaPlocha/hernaPlocha.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hernaPlocha/hernaPlocha.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hrac/hrac.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/hrac/hrac.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/HernaPlocha.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/hernaPlocha/HernaPlocha.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/HernaPlocha.h" beforeDir="false" afterPath="$PROJECT_DIR$/../client/hernaPlocha/HernaPlocha.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/Hrac.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/hrac/Hrac.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/Hrac.h" beforeDir="false" afterPath="$PROJECT_DIR$/../client/hrac/Hrac.h" afterDir="false" />
+    <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="server ma hraciu plochu ale zle sa vykresluju figurky">
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cache-v2-27146a374b79b9bd0180.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cmakeFiles-v1-589f4a9215af942d65e0.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/codemodel-v2-3de08e35b2edb0562e7c.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/index-2024-01-06T20-19-54-0603.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/target-client-Debug-f402eeadf6bee9ae5ea1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_deps" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/main.cpp.obj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/build.ninja" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/client.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/client.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/clion-FRIOS-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-frios/CMakeFiles/clion-FRIOS-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hernaPlocha/hernaPlocha.c" beforeDir="false" afterPath="$PROJECT_DIR$/hernaPlocha/hernaPlocha.c" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pos_sockets/active_socket.c" beforeDir="false" afterPath="$PROJECT_DIR$/pos_sockets/active_socket.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,37 +74,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "CMake Application.server.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "Jakub",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Daniel/CLionProjects/Semestralka_POS/server",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "dynamic.analysis.tools.valgrind",
-    "structure.view.defaults.are.configured": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;CMake Application.server.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Jakub&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Daniel/CLionProjects/Semestralka_POS/server&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;dynamic.analysis.tools.valgrind&quot;,
+    &quot;structure.view.defaults.are.configured&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="CMake Application.server">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="server" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="server" TARGET_NAME="server" CONFIG_NAME="frios" RUN_TARGET_PROJECT_NAME="server" RUN_TARGET_NAME="server">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -141,7 +138,9 @@
       <workItem from="1704544395746" duration="12978000" />
       <workItem from="1704562346798" duration="7537000" />
       <workItem from="1704570184869" duration="1413000" />
-      <workItem from="1704619254655" duration="5080000" />
+      <workItem from="1704619254655" duration="5469000" />
+      <workItem from="1704628544068" duration="958000" />
+      <workItem from="1704648335701" duration="1232000" />
     </task>
     <task id="LOCAL-00001" summary="upravy cmake">
       <option name="closed" value="true" />
@@ -199,7 +198,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704564488667</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="server ma hraciu plochu ale zle sa vykresluju figurky">
+      <option name="closed" value="true" />
+      <created>1704624925013</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704624925013</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -219,7 +226,8 @@
     <MESSAGE value="skoro hotovy projekt" />
     <MESSAGE value="skoro nedokonceny projekt" />
     <MESSAGE value="client sa ukonci" />
-    <option name="LAST_COMMIT_MESSAGE" value="client sa ukonci" />
+    <MESSAGE value="server ma hraciu plochu ale zle sa vykresluju figurky" />
+    <option name="LAST_COMMIT_MESSAGE" value="server ma hraciu plochu ale zle sa vykresluju figurky" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -233,6 +241,11 @@
           <url>file://$PROJECT_DIR$/pos_sockets/active_socket.c</url>
           <line>93</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/main.c</url>
+          <line>302</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

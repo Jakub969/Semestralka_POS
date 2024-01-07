@@ -139,84 +139,84 @@ Suradnica getSuradnicuPodlaIndexu(const HernaPlocha* hernaplocha, int index) {
 
 Suradnica* getSlovnik(const HernaPlocha* hernaplocha) {
     Suradnica* slovnik = (Suradnica*) malloc(57 * sizeof(Suradnica));
-    initializeSuradnica(slovnik, 0 ,0);
-    initializeSuradnica(slovnik, 0, 6);
-    initializeSuradnica(slovnik,1, 6);
-    initializeSuradnica(slovnik,2, 6);
-    initializeSuradnica(slovnik,3, 6);
-    initializeSuradnica(slovnik,4, 6);
-    initializeSuradnica(slovnik,4, 7);
-    initializeSuradnica(slovnik,4, 8);
-    initializeSuradnica(slovnik,4, 9);
-    initializeSuradnica(slovnik,4, 10);
-    initializeSuradnica(slovnik,5, 10);
-    initializeSuradnica(slovnik,6, 10);
-    initializeSuradnica(slovnik,6, 9);
-    initializeSuradnica(slovnik,6, 8);
-    initializeSuradnica(slovnik,6, 7);
-    initializeSuradnica(slovnik,6, 6);
-    initializeSuradnica(slovnik,7, 6);
-    initializeSuradnica(slovnik,8, 6);
-    initializeSuradnica(slovnik,9, 6);
-    initializeSuradnica(slovnik,10, 6);
-    initializeSuradnica(slovnik,10, 5);
-    initializeSuradnica(slovnik,10, 4);
-    initializeSuradnica(slovnik,9, 4);
-    initializeSuradnica(slovnik,8, 4);
-    initializeSuradnica(slovnik,7, 4);
-    initializeSuradnica(slovnik,6, 4);
-    initializeSuradnica(slovnik,6, 3);
-    initializeSuradnica(slovnik,6, 2);
-    initializeSuradnica(slovnik,6, 1);
-    initializeSuradnica(slovnik,6, 0);
-    initializeSuradnica(slovnik,5, 0);
-    initializeSuradnica(slovnik,4, 0);
-    initializeSuradnica(slovnik,4, 1);
-    initializeSuradnica(slovnik,4, 2);
-    initializeSuradnica(slovnik,4, 3);
-    initializeSuradnica(slovnik,4, 4);
-    initializeSuradnica(slovnik,3, 4);
-    initializeSuradnica(slovnik,2, 4);
-    initializeSuradnica(slovnik,1, 4);
-    initializeSuradnica(slovnik,0, 4);
-    initializeSuradnica(slovnik,0, 5);
-    initializeSuradnica(slovnik,1, 5); // vyherne domceky - modra
-    initializeSuradnica(slovnik,2, 5);
-    initializeSuradnica(slovnik,3, 5);
-    initializeSuradnica(slovnik,4, 5);
-    initializeSuradnica(slovnik,5, 1); // červená
-    initializeSuradnica(slovnik,5, 2);
-    initializeSuradnica(slovnik,5, 3);
-    initializeSuradnica(slovnik,5, 4);
-    initializeSuradnica(slovnik,5, 9); // zelená
-    initializeSuradnica(slovnik,5, 8);
-    initializeSuradnica(slovnik,5, 7);
-    initializeSuradnica(slovnik,5, 6);
-    initializeSuradnica(slovnik,9, 5); // oranžová
-    initializeSuradnica(slovnik,8, 5);
-    initializeSuradnica(slovnik,7, 5);
-    initializeSuradnica(slovnik,6, 5);
+    initializeSuradnica(&slovnik[0], 0 ,9);
+    initializeSuradnica(&slovnik[1], 0, 6);
+    initializeSuradnica(&slovnik[2],1, 6);
+    initializeSuradnica(&slovnik[3],2, 6);
+    initializeSuradnica(&slovnik[4],3, 6);
+    initializeSuradnica(&slovnik[5],4, 6);
+    initializeSuradnica(&slovnik[6],4, 7);
+    initializeSuradnica(&slovnik[7],4, 8);
+    initializeSuradnica(&slovnik[8],4, 9);
+    initializeSuradnica(&slovnik[9],4, 10);
+    initializeSuradnica(&slovnik[10],5, 10);
+    initializeSuradnica(&slovnik[11],6, 10);
+    initializeSuradnica(&slovnik[12],6, 9);
+    initializeSuradnica(&slovnik[13],6, 8);
+    initializeSuradnica(&slovnik[14],6, 7);
+    initializeSuradnica(&slovnik[15],6, 6);
+    initializeSuradnica(&slovnik[16],7, 6);
+    initializeSuradnica(&slovnik[17],8, 6);
+    initializeSuradnica(&slovnik[18],9, 6);
+    initializeSuradnica(&slovnik[19],10, 6);
+    initializeSuradnica(&slovnik[20],10, 5);
+    initializeSuradnica(&slovnik[21],10, 4);
+    initializeSuradnica(&slovnik[22],9, 4);
+    initializeSuradnica(&slovnik[23],8, 4);
+    initializeSuradnica(&slovnik[24],7, 4);
+    initializeSuradnica(&slovnik[25],6, 4);
+    initializeSuradnica(&slovnik[26],6, 3);
+    initializeSuradnica(&slovnik[27],6, 2);
+    initializeSuradnica(&slovnik[28],6, 1);
+    initializeSuradnica(&slovnik[29],6, 0);
+    initializeSuradnica(&slovnik[30],5, 0);
+    initializeSuradnica(&slovnik[31],4, 0);
+    initializeSuradnica(&slovnik[32],4, 1);
+    initializeSuradnica(&slovnik[33],4, 2);
+    initializeSuradnica(&slovnik[34],4, 3);
+    initializeSuradnica(&slovnik[35],4, 4);
+    initializeSuradnica(&slovnik[36],3, 4);
+    initializeSuradnica(&slovnik[37],2, 4);
+    initializeSuradnica(&slovnik[38],1, 4);
+    initializeSuradnica(&slovnik[39],0, 4);
+    initializeSuradnica(&slovnik[40],0, 5);
+    initializeSuradnica(&slovnik[41],1, 5); // vyherne domceky - modra
+    initializeSuradnica(&slovnik[42],2, 5);
+    initializeSuradnica(&slovnik[43],3, 5);
+    initializeSuradnica(&slovnik[44],4, 5);
+    initializeSuradnica(&slovnik[45],5, 1); // červená
+    initializeSuradnica(&slovnik[46],5, 2);
+    initializeSuradnica(&slovnik[47],5, 3);
+    initializeSuradnica(&slovnik[48],5, 4);
+    initializeSuradnica(&slovnik[49],5, 9); // zelená
+    initializeSuradnica(&slovnik[50],5, 8);
+    initializeSuradnica(&slovnik[51],5, 7);
+    initializeSuradnica(&slovnik[52],5, 6);
+    initializeSuradnica(&slovnik[53],9, 5); // oranžová
+    initializeSuradnica(&slovnik[54],8, 5);
+    initializeSuradnica(&slovnik[55],7, 5);
+    initializeSuradnica(&slovnik[56],6, 5);
     return slovnik;
 }
 
 Suradnica* getZapornySlovnik(const HernaPlocha* hernaplocha) {
     Suradnica* slovnik = (Suradnica*) malloc(16 * sizeof(Suradnica));
-    initializeSuradnica(slovnik,0,9);
-    initializeSuradnica(slovnik,0,10);
-    initializeSuradnica(slovnik,1,9);
-    initializeSuradnica(slovnik,1,10);
-    initializeSuradnica(slovnik,0,0);
-    initializeSuradnica(slovnik,0,1);
-    initializeSuradnica(slovnik,1,0);
-    initializeSuradnica(slovnik,1,1);
-    initializeSuradnica(slovnik,9,9);
-    initializeSuradnica(slovnik,9,10);
-    initializeSuradnica(slovnik,10,9);
-    initializeSuradnica(slovnik,10,10);
-    initializeSuradnica(slovnik,9,0);
-    initializeSuradnica(slovnik,9,1);
-    initializeSuradnica(slovnik,10,0);
-    initializeSuradnica(slovnik,10,1);
+    initializeSuradnica(&slovnik[0], 0, 9);
+    initializeSuradnica(&slovnik[1],0,10);
+    initializeSuradnica(&slovnik[2],1,9);
+    initializeSuradnica(&slovnik[3],1,10);
+    initializeSuradnica(&slovnik[4],0,0);
+    initializeSuradnica(&slovnik[5],0,1);
+    initializeSuradnica(&slovnik[6],1,0);
+    initializeSuradnica(&slovnik[7],1,1);
+    initializeSuradnica(&slovnik[8],9,9);
+    initializeSuradnica(&slovnik[9],9,10);
+    initializeSuradnica(&slovnik[10],10,9);
+    initializeSuradnica(&slovnik[11],10,10);
+    initializeSuradnica(&slovnik[12],9,0);
+    initializeSuradnica(&slovnik[13],9,1);
+    initializeSuradnica(&slovnik[14],10,0);
+    initializeSuradnica(&slovnik[15],10,1);
     return slovnik;
 }
 

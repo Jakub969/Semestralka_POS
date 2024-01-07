@@ -172,13 +172,13 @@
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "Hrac.cpp",
+			"path" : "hrac/Hrac.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 2,
 			"compileGroupIndex" : 0,
-			"path" : "HernaPlocha.cpp",
+			"path" : "hernaPlocha/HernaPlocha.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

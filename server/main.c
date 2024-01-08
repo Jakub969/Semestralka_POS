@@ -4,11 +4,7 @@
 #include <string.h>
 #include <strings.h>
 #include <pthread.h>
-#include <sys/socket.h>
-#include <arpa/inet.h>
 #include <unistd.h>
-#include <ctype.h>
-#include "buffer.h"
 #include "pos_sockets/char_buffer.h"
 #include "pos_sockets/active_socket.h"
 #include "pos_sockets/passive_socket.h"

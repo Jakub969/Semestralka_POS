@@ -1,3 +1,0 @@
-/tmp/tmp.EmGbNsXGWg/cmake-build-release/CMakeFiles/rebuild_cache.dir
-/tmp/tmp.EmGbNsXGWg/cmake-build-release/CMakeFiles/edit_cache.dir
-/tmp/tmp.EmGbNsXGWg/cmake-build-release/CMakeFiles/server.dir

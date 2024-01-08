@@ -43,7 +43,7 @@
 			{
 				"command" : 2,
 				"file" : 1,
-				"line" : 15,
+				"line" : 22,
 				"parent" : 0
 			},
 			{
@@ -100,11 +100,6 @@
 			{
 				"fragment" : "/machine:x64 /debug /INCREMENTAL /subsystem:console",
 				"role" : "flags"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "pthread.lib",
-				"role" : "libraries"
 			},
 			{
 				"backtrace" : 3,

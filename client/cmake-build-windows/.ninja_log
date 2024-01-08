@@ -1,7 +1,8 @@
 # ninja log v5
-2	2198	7264053232128003	CMakeFiles/client.dir/my_socket.cpp.obj	7bf966fd0d4c5c6e
-6	3012	7264053929604410	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
-11	588	7264053216022412	CMakeFiles/client.dir/hrac/Hrac.cpp.obj	edcfc08a4d9feb88
-16	756	7264053217702802	CMakeFiles/client.dir/hernaPlocha/HernaPlocha.cpp.obj	6a926b04e7fd6bcb
+6	1261	7264144740340486	CMakeFiles/client.dir/my_socket.cpp.obj	d37cf94ed59323a3
+12	1683	7264144744550732	CMakeFiles/client.dir/main.cpp.obj	e0ea151125866df8
+23	808	7264144735807765	CMakeFiles/client.dir/hrac/Hrac.cpp.obj	4b124114d0565a08
+18	874	7264144736462937	CMakeFiles/client.dir/hernaPlocha/HernaPlocha.cpp.obj	eebf4f1fcb38f751
 3012	3840	7264053931694842	client.exe	d2a5548843c48843
-1	2247	7264143321610703	build.ninja	7cf652d8db6fa574
+1	2247	7264145101637722	build.ninja	7cf652d8db6fa574
+2	1156	7264145358828246	client.exe	a61d16ed4a1640af

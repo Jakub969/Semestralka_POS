@@ -214,6 +214,7 @@ void posliAktualnyStav(THREAD_DATA *pData) {
     HernaPlocha hernaPlocha;
     initializeHernaPlocha(&hernaPlocha, param);
     vypisSa(&hernaPlocha);
+    freeHernaPlocha(&hernaPlocha);
     uvolniPamatPolaStringov(param,size);
     char_buffer_destroy(&odpoved);
     if (getIdHraca(pData->serveroviHrac) == pData->hracNaRade) {
@@ -347,6 +348,7 @@ void prijmaj(struct thread_data *pData) {
 
 
 int main() {
+    srand(time(0));
     pthread_t th_receive;
     int pocetHracov = 2;
     short port = 15874;

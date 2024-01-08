@@ -1,3 +1,4 @@
+#define  _CRTDBG_MAP_ALLOC
 #include <iostream>
 #include <thread>
 #include <mutex>
@@ -9,9 +10,10 @@
 #include "hrac/Hrac.h"
 #include "hernaPlocha/HernaPlocha.h"
 #include <sstream>
-#define  _CRTDBG_MAP_ALLOC
 #include <stdlib.h>
 #include <crtdbg.h>
+
+
 
 
 struct hodKockou {
@@ -126,19 +128,23 @@ void spracuj(const std::string& basicString, Hrac hrac, ThreadData* data) {
         hernaPlocha.vypisSa();
         if (hrac.getIdHraca() == std::stoi(spracovanaSprava[2])) {
             char tlacidlo = 'd';
-            std::cout << "Stlac 'e' aby si hodil kockou.\n";
-            while (tlacidlo != 'e') {
+            std::cout << "Stlac 'e' aby si hodil kockou alebo 'k' pre koniec\n";
+            while (tlacidlo != 'e' && tlacidlo != 'k') {
                 std::cin >> tlacidlo;
             }
-            hodKockou hod = data->consume();
-            std::cout << "Hodil si cislo: " << hod.cislo << std::endl;
-            std::string hracCislo = "hracCislo";
-            std::string idHraca = std::to_string(hrac.getIdHraca());
-            std::string hodS = std::to_string(hod.cislo);
+            if (tlacidlo == 'k') {
+                data->ukonci();
+            } else {
+                hodKockou hod = data->consume();
+                std::cout << "Hodil si cislo: " << hod.cislo << std::endl;
+                std::string hracCislo = "hracCislo";
+                std::string idHraca = std::to_string(hrac.getIdHraca());
+                std::string hodS = std::to_string(hod.cislo);
 
-            std::string odpoved = hracCislo + ";" + idHraca + ";" + hodS;
+                std::string odpoved = hracCislo + ";" + idHraca + ";" + hodS;
 
-            data->getServerSocket()->sendData(odpoved);
+                data->getServerSocket()->sendData(odpoved);
+            }
         }
     } else if (spracovanaSprava[0] == "vyhralHrac") {
         if (hrac.getIdHraca() == stoi(spracovanaSprava[1])) {
@@ -153,9 +159,10 @@ void spracuj(const std::string& basicString, Hrac hrac, ThreadData* data) {
 }
 
 int main() {
-    #ifdef _DEBUG
+    /*#ifdef _DEBUG
         _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-    #endif
+    #endif*/
+    _CrtDumpMemoryLeaks();
     srand(time(0));
     //printf("Hello");
     MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15874);
@@ -196,7 +203,8 @@ int main() {
     }
     mySocket->sendEndMessage();
     thProduce.join();
-    delete mySocket;
-    mySocket = nullptr;
+    //delete mySocket;
+    //mySocket = nullptr;
+
     return 0;
 }

@@ -20,24 +20,18 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="server ma hraciu plochu ale zle sa vykresluju figurky">
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cache-v2-27146a374b79b9bd0180.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cmakeFiles-v1-589f4a9215af942d65e0.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/codemodel-v2-3de08e35b2edb0562e7c.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/index-2024-01-06T20-19-54-0603.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/target-client-Debug-f402eeadf6bee9ae5ea1.json" beforeDir="false" />
+    <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="server hraje s clientom">
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/main.cpp.obj" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/main.cpp.obj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/build.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/client.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/client.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hernaPlocha/hernaPlocha.c" beforeDir="false" afterPath="$PROJECT_DIR$/hernaPlocha/hernaPlocha.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hrac/hrac.c" beforeDir="false" afterPath="$PROJECT_DIR$/hrac/hrac.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/hrac/hrac.h" beforeDir="false" afterPath="$PROJECT_DIR$/hrac/hrac.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pos_sockets/active_socket.c" beforeDir="false" afterPath="$PROJECT_DIR$/pos_sockets/active_socket.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -140,7 +134,8 @@
       <workItem from="1704570184869" duration="1413000" />
       <workItem from="1704619254655" duration="5469000" />
       <workItem from="1704628544068" duration="958000" />
-      <workItem from="1704648335701" duration="1232000" />
+      <workItem from="1704648335701" duration="14922000" />
+      <workItem from="1704699457279" duration="3800000" />
     </task>
     <task id="LOCAL-00001" summary="upravy cmake">
       <option name="closed" value="true" />
@@ -206,7 +201,31 @@
       <option name="project" value="LOCAL" />
       <updated>1704624925013</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="server ma hraciu plochu ktora sa dobre vykresluje">
+      <option name="closed" value="true" />
+      <created>1704650510336</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704650510337</updated>
+    </task>
+    <task id="LOCAL-00010" summary="server hraje s clientom">
+      <option name="closed" value="true" />
+      <created>1704662325120</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704662325120</updated>
+    </task>
+    <task id="LOCAL-00011" summary="server hraje s clientom">
+      <option name="closed" value="true" />
+      <created>1704662949995</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1704662949995</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,27 +246,8 @@
     <MESSAGE value="skoro nedokonceny projekt" />
     <MESSAGE value="client sa ukonci" />
     <MESSAGE value="server ma hraciu plochu ale zle sa vykresluju figurky" />
-    <option name="LAST_COMMIT_MESSAGE" value="server ma hraciu plochu ale zle sa vykresluju figurky" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/pos_sockets/active_socket.c</url>
-          <line>101</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/pos_sockets/active_socket.c</url>
-          <line>93</line>
-          <option name="timeStamp" value="20" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.c</url>
-          <line>302</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="server ma hraciu plochu ktora sa dobre vykresluje" />
+    <MESSAGE value="server hraje s clientom" />
+    <option name="LAST_COMMIT_MESSAGE" value="server hraje s clientom" />
   </component>
 </project>

@@ -8,6 +8,7 @@
 void initializeHrac(Hrac* hrac, int idHraca, char farbaFigurky) {
     hrac->idHraca = idHraca;
     hrac->farbaFigurky = farbaFigurky;
+    jePripraveny(hrac);
 }
 
 void jePripraveny(Hrac* hrac) {

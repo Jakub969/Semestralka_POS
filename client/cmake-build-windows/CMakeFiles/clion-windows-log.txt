@@ -1,12 +1,5 @@
 "D:\CLion\CLion 2023.2.2\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=D:/CLion/CLion 2023.2.2/bin/ninja/win/x64/ninja.exe" -G Ninja -DCMAKE_TOOLCHAIN_FILE=C:\Users\jakub\.vcpkg-clion\vcpkg\scripts\buildsystems\vcpkg.cmake -S C:\Users\jakub\CLionProjects\Semestralka_POS\client -B C:\Users\jakub\CLionProjects\Semestralka_POS\client\cmake-build-windows
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD
--- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
--- Looking for pthread_create in pthreads
--- Looking for pthread_create in pthreads - not found
--- Looking for pthread_create in pthread
--- Looking for pthread_create in pthread - not found
--- Found Threads: TRUE  
--- Configuring done (1.1s)
+-- Configuring done (0.2s)
 -- Generating done (0.0s)
 CMake Warning:
   Manually-specified variables were not used by the project:

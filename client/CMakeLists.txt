@@ -11,7 +11,9 @@ add_executable(client
         my_socket.h
         hrac/Hrac.cpp
         hernaPlocha/HernaPlocha.cpp)
-find_package(Threads REQUIRED)
+## ak sa pouziva Visual Studio toolchain
+#[[
+    find_package(Threads REQUIRED)
 if(THREADS_HAVE_PTHREAD_ARG)
     target_compile_options(client PUBLIC "-pthread")
 endif()
@@ -20,3 +22,5 @@ if(CMAKE_THREAD_LIBS_INIT)
 endif()
 
 target_link_libraries(client wsock32 ws2_32 Threads::Threads)
+]]
+target_link_libraries(client wsock32 ws2_32 pthread)

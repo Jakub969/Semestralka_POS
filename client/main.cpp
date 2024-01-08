@@ -1,4 +1,6 @@
 #define  _CRTDBG_MAP_ALLOC
+#include <stdlib.h>
+#include <crtdbg.h>
 #include <iostream>
 #include <thread>
 #include <mutex>
@@ -10,8 +12,7 @@
 #include "hrac/Hrac.h"
 #include "hernaPlocha/HernaPlocha.h"
 #include <sstream>
-#include <stdlib.h>
-#include <crtdbg.h>
+
 
 
 
@@ -159,12 +160,12 @@ void spracuj(const std::string& basicString, Hrac hrac, ThreadData* data) {
 }
 
 int main() {
-    /*#ifdef _DEBUG
-        _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-    #endif*/
-    _CrtDumpMemoryLeaks();
+#ifdef _DEBUG
+    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+#endif
+
     srand(time(0));
-    //printf("Hello");
+
     MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15874);
     std::string sprava = mySocket->prijmi();
     std::vector<std::string> oddeleneSpravy = spracujSpravuZoServera(sprava);
@@ -203,8 +204,7 @@ int main() {
     }
     mySocket->sendEndMessage();
     thProduce.join();
-    //delete mySocket;
-    //mySocket = nullptr;
-
+    delete mySocket;
+    mySocket = nullptr;
     return 0;
 }

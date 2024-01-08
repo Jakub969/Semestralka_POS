@@ -21,17 +21,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f7ce7a2a-bc00-4424-8981-a4038080857a" name="Changes" comment="server hraje s clientom">
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cache-v2-354cf4c81bdf9dba21b1.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/cmakeFiles-v1-06e608dffe9b7a75ef60.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/codemodel-v2-00a08a54f37060786bfd.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/index-2024-01-07T11-55-03-0778.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/target-client-Debug-40325f8e1cad76dbd824.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.cmake/api/v1/reply/toolchains-v1-b5d4cb647a32ff89492a.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_deps" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_deps" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_log" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/.ninja_log" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeCache.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/Testing/Temporary/LastTest.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeCXXCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeRCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CMakeRCCompiler.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CompilerIdC/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/3.26.4/CompilerIdCXX/a.exe" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/CMakeConfigureLog.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/HernaPlocha.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/Hrac.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/hernaPlocha/HernaPlocha.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/hrac/Hrac.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/main.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/client.dir/my_socket.cpp.obj" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/clion-windows-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/rules.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/CMakeFiles/rules.ninja" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/build.ninja" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/build.ninja" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/client.exe" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/client.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/cmake-build-windows/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-windows/cmake_install.cmake" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hrac/hrac.c" beforeDir="false" afterPath="$PROJECT_DIR$/hrac/hrac.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/hrac/hrac.h" beforeDir="false" afterPath="$PROJECT_DIR$/hrac/hrac.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" afterPath="$PROJECT_DIR$/main.c" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

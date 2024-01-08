@@ -9,7 +9,14 @@ add_executable(client
         main.cpp
         my_socket.cpp
         my_socket.h
-        Hrac.cpp
-        HernaPlocha.cpp)
+        hrac/Hrac.cpp
+        hernaPlocha/HernaPlocha.cpp)
+find_package(Threads REQUIRED)
+if(THREADS_HAVE_PTHREAD_ARG)
+    target_compile_options(client PUBLIC "-pthread")
+endif()
+if(CMAKE_THREAD_LIBS_INIT)
+    target_link_libraries(client "${CMAKE_THREAD_LIBS_INIT}")
+endif()
 
-target_link_libraries(client pthread wsock32 ws2_32)
+target_link_libraries(client wsock32 ws2_32 Threads::Threads)

@@ -128,6 +128,30 @@ client/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/build
 .PHONY : client/fast
 
+HernaPlocha.obj: HernaPlocha.cpp.obj
+.PHONY : HernaPlocha.obj
+
+# target to build an object file
+HernaPlocha.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/HernaPlocha.cpp.obj
+.PHONY : HernaPlocha.cpp.obj
+
+HernaPlocha.i: HernaPlocha.cpp.i
+.PHONY : HernaPlocha.i
+
+# target to preprocess a source file
+HernaPlocha.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/HernaPlocha.cpp.i
+.PHONY : HernaPlocha.cpp.i
+
+HernaPlocha.s: HernaPlocha.cpp.s
+.PHONY : HernaPlocha.s
+
+# target to generate assembly for a file
+HernaPlocha.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\client.dir\build.make CMakeFiles/client.dir/HernaPlocha.cpp.s
+.PHONY : HernaPlocha.cpp.s
+
 Hrac.obj: Hrac.cpp.obj
 .PHONY : Hrac.obj
 
@@ -209,6 +233,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... client
+	@echo ... HernaPlocha.obj
+	@echo ... HernaPlocha.i
+	@echo ... HernaPlocha.s
 	@echo ... Hrac.obj
 	@echo ... Hrac.i
 	@echo ... Hrac.s

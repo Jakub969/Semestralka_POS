@@ -6,13 +6,13 @@
 
 #IncludeRegexTransform: 
 
-/tmp/tmp.1kRmHROS2c/buffer.h
+/tmp/tmp.MGoFZaKFmO/buffer.h
 stdbool.h
 -
 stdlib.h
 -
 
-/tmp/tmp.1kRmHROS2c/main.c
+/tmp/tmp.MGoFZaKFmO/main.c
 stdio.h
 -
 stdlib.h
@@ -34,37 +34,79 @@ unistd.h
 ctype.h
 -
 buffer.h
-/tmp/tmp.1kRmHROS2c/buffer.h
+/tmp/tmp.MGoFZaKFmO/buffer.h
 pos_sockets/char_buffer.h
-/tmp/tmp.1kRmHROS2c/pos_sockets/char_buffer.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/char_buffer.h
 pos_sockets/active_socket.h
-/tmp/tmp.1kRmHROS2c/pos_sockets/active_socket.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/active_socket.h
 pos_sockets/passive_socket.h
-/tmp/tmp.1kRmHROS2c/pos_sockets/passive_socket.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/passive_socket.h
 
-/tmp/tmp.1kRmHROS2c/pos_sockets/active_socket.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/active_socket.c
+active_socket.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/active_socket.h
+char_buffer.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/char_buffer.h
+stdbool.h
+-
+stdio.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+string.h
+-
+strings.h
+-
+
+/tmp/tmp.MGoFZaKFmO/pos_sockets/active_socket.h
 pthread.h
 -
 char_buffer.h
-/tmp/tmp.1kRmHROS2c/pos_sockets/char_buffer.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/char_buffer.h
 linked_list.h
-/tmp/tmp.1kRmHROS2c/pos_sockets/linked_list.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/linked_list.h
 
-/tmp/tmp.1kRmHROS2c/pos_sockets/char_buffer.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/char_buffer.c
+char_buffer.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/char_buffer.h
+stdlib.h
+-
+string.h
+-
+
+/tmp/tmp.MGoFZaKFmO/pos_sockets/char_buffer.h
 stdlib.h
 -
 
-/tmp/tmp.1kRmHROS2c/pos_sockets/linked_list.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/linked_list.h
 stdlib.h
 -
 stdbool.h
 -
 
-/tmp/tmp.1kRmHROS2c/pos_sockets/passive_socket.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/passive_socket.c
+passive_socket.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/passive_socket.h
+stdio.h
+-
+sys/socket.h
+-
+arpa/inet.h
+-
+unistd.h
+-
+string.h
+-
+
+/tmp/tmp.MGoFZaKFmO/pos_sockets/passive_socket.h
 stdbool.h
 -
 pthread.h
 -
 active_socket.h
-/tmp/tmp.1kRmHROS2c/pos_sockets/active_socket.h
+/tmp/tmp.MGoFZaKFmO/pos_sockets/active_socket.h
 

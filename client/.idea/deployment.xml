@@ -13,6 +13,13 @@
           </excludedPaths>
         </serverdata>
       </paths>
+      <paths name="Remote Host (1c7ee128-100b-4465-8a68-5da5e6118f43)">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/tmp/tmp.8KVUQEi9HW" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="frios2 (7afd1cd6-ed3c-4f75-9142-4ddfa476d25c)">
         <serverdata>
           <mappings>

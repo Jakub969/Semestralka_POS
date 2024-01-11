@@ -44,7 +44,17 @@ void hracia_plocha_init(HRACIA_PLOCHA *hraciaPlocha, int pocetHracov) {
     for (int i = 0; i < pocetHracov; ++i) {
         for (int j = 0; j < 4; ++j) {
             int indexFigurky = i*4+j;
-            figurka_init(&hraciaPlocha->figurky[indexFigurky], i, i*10+1, -(indexFigurky), 41+indexFigurky);
+            int startovaciaPozicia = 0;
+            if (i == 0) {
+                startovaciaPozicia = 1;
+            } else if (i == 1) {
+                startovaciaPozicia = 31;
+            } else if (i == 2) {
+                startovaciaPozicia = 21;
+            } else if (i == 11) {
+                startovaciaPozicia = 11;
+            }
+            figurka_init(&hraciaPlocha->figurky[indexFigurky], i, startovaciaPozicia, -(indexFigurky), 41+indexFigurky);
         }
     }
 }
@@ -347,7 +357,7 @@ int main() {
     srand(time(0));
     pthread_t th_receive;
     int pocetHracov = 2;
-    short port = 15874;
+    short port = 15873;
     HRACIA_PLOCHA hraciaPlocha;
     struct thread_data data;
     struct active_socket my_socket;

@@ -1,0 +1,1 @@
+/usr/bin/cc -g CMakeFiles/server.dir/main.c.o CMakeFiles/server.dir/pos_sockets/active_socket.c.o CMakeFiles/server.dir/pos_sockets/char_buffer.c.o CMakeFiles/server.dir/pos_sockets/passive_socket.c.o CMakeFiles/server.dir/hrac/hrac.c.o CMakeFiles/server.dir/hernaPlocha/hernaPlocha.c.o -o server  -lpthread 

@@ -166,7 +166,7 @@ int main() {
 
     srand(time(0));
 
-    MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15874);
+    MySocket* mySocket = MySocket::createConnection("frios2.fri.uniza.sk", 15873);
     std::string sprava = mySocket->prijmi();
     std::vector<std::string> oddeleneSpravy = spracujSpravuZoServera(sprava);
     std::string farbaFigurky;

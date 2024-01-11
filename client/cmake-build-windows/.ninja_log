@@ -4,3 +4,12 @@
 10	800	7264223974320591	CMakeFiles/client.dir/hrac/Hrac.cpp.obj	e3d6b71fc7f5bae4
 5	1280	7264223979137770	CMakeFiles/client.dir/hernaPlocha/HernaPlocha.cpp.obj	8bcd0a29ad85561f
 1280	3835	7264224004631580	client.exe	9ceac1757ae85c12
+19	1173	7264294544445840	CMakeFiles/client.dir/hrac/Hrac.cpp.obj	edcfc08a4d9feb88
+27	1513	7264294547851472	CMakeFiles/client.dir/hernaPlocha/HernaPlocha.cpp.obj	6a926b04e7fd6bcb
+4	3774	7264294570476013	CMakeFiles/client.dir/my_socket.cpp.obj	7bf966fd0d4c5c6e
+12	4961	7264294582313150	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
+4963	6274	7264294585390029	client.exe	7d6df0ffbea3a000
+10	4648	7266632885882533	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
+4650	10571	7266632895482195	client.exe	7d6df0ffbea3a000
+9	6139	7266660951480887	CMakeFiles/client.dir/main.cpp.obj	e1d645785d1ce123
+6140	9575	7266660957712790	client.exe	7d6df0ffbea3a000
